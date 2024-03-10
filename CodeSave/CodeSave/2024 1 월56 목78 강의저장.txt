@@ -1,0 +1,897 @@
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	std::cout << "2024 STL" << std::endl;
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	std::cout << "2024 STL" << std::endl;
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+===================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+===================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "===================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "===================================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+===================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+===================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+===================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "===================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "===================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+===================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+==================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+==================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "==================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "==================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+==================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+==================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "==================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "==================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+
+#include <iostream>
+#include "save.h"
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+
+	int a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:43
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+
+#include <iostream>
+#include "save.h"
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	//save("save.h");
+	//save("save.cpp");
+	save("FileName.cpp");
+
+	int a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:11:38
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog {
+public:
+	int i;
+};
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	//save("save.h");
+	//save("save.cpp");
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a.i, b.i);
+	std::cout << a.i << ", " << b.i << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:47:44
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(Dog&, Dog&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		return os << dog.num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(Dog& a, Dog& b) {
+	Dog temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:49:06
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(Dog&, Dog&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(Dog& a, Dog& b) {
+	Dog temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 5:15:24
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(auto&, auto&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(auto& a, auto& b) {
+	auto temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 5:18:07
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+template <class T>
+void change(T&, T&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+template <class T>
+
+void change(T& a, T& b) {
+	T temp{ a };
+	a = b;
+	b = temp;
+}
+
