@@ -1,0 +1,1943 @@
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:22
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	std::cout << "2024 STL" << std::endl;
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:35
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	std::cout << "2024 STL" << std::endl;
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+========================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+========================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "========================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "========================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+========================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:40:57
+========================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+===================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+===================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "===================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "===================================" << std::endl;
+
+	out.imbue(old);
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+===================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:41:44
+===================================
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+===================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+===================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "===================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "===================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+===================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:42:09
+===================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:19
+================================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+==================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+
+==================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "==================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "==================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:43:30
+==================================================
+
+#include <iostream>
+#include "save.h"
+
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+}
+
+
+
+==================================================
+save.h, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+// ---------------------------
+// save.h  한 학기 강의를 저장한다
+// 2024.03.07
+// ---------------------------
+#pragma once
+#include <string_view>
+
+void save(std::string_view);
+
+
+==================================================
+save.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+//-----------
+// save.cpp  한 학기 강의를 저장
+// 2024.03.07
+//---------------
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <vector>
+#include <chrono>
+#include <string>
+#include "save.h"
+
+void save(std::string_view filename) {
+	// 읽을 파일을 연다
+	std::ifstream in{ filename.data() };
+	if (!in) {
+		std::cout << "Can not open file." << std::endl;
+		exit(0);
+	}
+
+	// 쓸 파일을 덧붙이기 모드로 연다
+	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+
+	// 저장된 시간을 파일에 기록한다
+	auto now = std::chrono::system_clock::now();
+	auto time = std::chrono::system_clock::to_time_t(now);  // utc 시간으로 변환
+	auto lt = localtime(&time);  // 현지 시간으로 변환
+
+	auto old = out.imbue(std::locale("Ko_KR"));
+	out << "\n" << "\n";
+	out << "==================================================" << "\n";
+	out << filename << std::put_time(lt, ", 저장시간: %x %A %X") << std::endl;
+	out << "==================================================" << std::endl;
+
+	out.imbue(old);
+	out << std::endl;
+
+	// 읽을 파일의 모든 내용을 읽어 쓸 파일에 덧붙인다.
+	std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
+	std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:27
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+
+#include <iostream>
+#include "save.h"
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("save.h");
+	save("save.cpp");
+	save("FileName.cpp");
+
+	int a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 3:52:43
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+
+#include <iostream>
+#include "save.h"
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	//save("save.h");
+	//save("save.cpp");
+	save("FileName.cpp");
+
+	int a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:11:38
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog {
+public:
+	int i;
+};
+
+void change(int& a, int& b);
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	//save("save.h");
+	//save("save.cpp");
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a.i, b.i);
+	std::cout << a.i << ", " << b.i << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:47:44
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(Dog&, Dog&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	friend std::ostream& operator << (std::ostream& os, const Dog& dog) {
+		return os << dog.num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(Dog& a, Dog& b) {
+	Dog temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 4:49:06
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(Dog&, Dog&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(Dog& a, Dog& b) {
+	Dog temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 5:15:24
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+void change(int&, int&);
+void change(auto&, auto&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+void change(int& a, int& b) {
+	int temp{ a };
+	a = b;
+	b = temp;
+}
+
+void change(auto& a, auto& b) {
+	auto temp{ a };  // copy-construction, 객체 복사 생성
+	a = b;
+	b = temp;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-07 목요일 오후 5:18:07
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+class Dog;  // forward declaration(전방선언)
+template <class T>
+void change(T&, T&);
+
+class Dog {
+public:
+	Dog(int num) : num{ num } {};
+	//Dog(const Dog& other) -> special 함수, 컴파일러가 자동 생성
+
+	operator int() {
+		return num;
+	}
+
+private:
+	int num;
+};
+
+
+// [문제] main()을 변경하면 안된다. 함수 chage()를 선언하고 정의
+int main() {
+	save("FileName.cpp");
+
+	Dog a{ 1 }, b{ 2 };
+	change(a, b);
+	std::cout << a << ", " << b << std::endl;  // 2, 1로 출력
+}
+
+template <class T>
+
+void change(T& a, T& b) {
+	T temp{ a };
+	a = b;
+	b = temp;
+}
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:49:41
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+int main() {
+	int a[100];
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:50:37
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+int main() {
+	int a[100];
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:52:05
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+int main() {
+	int a[100]{};
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:55:23
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:56:09
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:56:25
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::cout << num << '\t';
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:58:29
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::cout << std::format("{:8d}", num);
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 1:59:15
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::cout << std::format("{:^80d}", num);
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:00:34
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::print("{:8d}", num);
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:05:26
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+	int max;
+
+	for(int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::print("{:8d}", num);
+
+	// 가장 큰 값을 찾아 화면에 출력하라
+	for (int num : a) {
+		max = num;
+		auto next = num + 1;
+		if (next > max)
+			max = next;
+	}
+
+	std::print("max: ", max);
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:10:35
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::print("{:8d}", num);
+
+	int maxValue = std::numeric_limits<int>::min();
+	for (int i = 0; i < 100; i++) {
+		if (maxValue < a[i]) {
+			maxValue = a[i];
+		}
+	}
+
+	std::cout << "최댓값은 " << maxValue;
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:13:34
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::print("{:8d}", num);
+
+	int maxValue = std::numeric_limits<int>::min();
+	for (int num : a) {
+		if (maxValue < num) {
+			maxValue = num;
+		}
+	}
+
+	std::cout << "최댓값은 " << maxValue;
+	
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:17:33
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include <algorithm>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	int a[100];
+
+	for (int& num : a)
+		num = uid(dre);
+
+	for (int num : a)
+		std::print("{:8d}", num);
+
+	int maxValue = *std::max_element(std::begin(a), std::end(a));
+	
+	std::cout << std::endl << "최댓값은 " << maxValue;
+	
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:47:04
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include <array>
+#include <fstream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 이 값을 파일에 기록하라 -> "int천개.txt". 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	std::array<int, 1000> a;
+
+	for (int& num : a)
+		num = uid(dre);
+
+	//a에 있는 값을 파일에 기록하라
+	std::ofstream out{ "int천개.txt" };  // RAII
+	for (int num : a) {
+		std::print(out, "{:8}", num);
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:49:50
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include <array>
+#include <fstream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 이 값을 파일에 기록하라 -> "int천개.txt". 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	std::array<int, 1000> a;
+
+	for (int& num : a)
+		num = uid(dre);
+
+	//a에 있는 값을 파일에 기록하라
+	std::ofstream out{ "int천개.txt" };  // RAII
+	for (int num : a)
+		std::print(out, "{} ", num);
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 2:52:30
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <format>
+#include <print>
+#include <array>
+#include <fstream>
+#include "save.h"
+
+// [문제] [0, 99999]값을 가지는 int 100개를 만들자.
+// 이 값을 파일에 기록하라 -> "int천개.txt". 값이 가장 큰 수를 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 99999 };
+
+int main() {
+	std::array<int, 1000> a;
+
+	std::cout << sizeof(a) << std::endl;
+
+	for (int& num : a)
+		num = uid(dre);
+
+	//a에 있는 값을 파일에 기록하라
+	std::ofstream out{ "int천개.txt" };  // RAII
+	for (int num : a)
+		std::print(out, "{} ", num);
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 3:09:15
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include "save.h"
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 이 파일에 있는 값을 화면에 출력하라. 
+
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+
+	int num;
+	while (in >> num)
+		std::cout << num << '\t';
+
+	std::cout << std::endl;
+
+
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 3:10:23
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include "save.h"
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 이 파일에 있는 값을 화면에 출력하라. 
+
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+
+	int num;
+	int cnt{};
+	while (in >> num) {
+		std::cout << num << '\t';
+		cnt++;
+	}
+
+	std::cout << std::endl;
+
+	std::cout << "모두 " << cnt << "개를 읽었다" << std::endl;
+
+
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 3:16:33
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include "save.h"
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+
+
+	int maxValue = std::numeric_limits<int>::min();
+	int num;
+	while (in >> num) {
+		if (maxValue < num)
+			maxValue = num;
+	}
+
+	std::cout << "최대 값은 " << maxValue << std::endl;
+
+
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 3:19:13
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include "save.h"
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+
+
+	int maxValue = std::numeric_limits<int>::min();
+	int num;
+
+	std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	std::cout << "최대 값은 " << maxValue << std::endl;
+
+
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 3:32:09
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include "save.h"
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+
+	int maxValue = std::numeric_limits<int>::min();
+	int num;
+
+	std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 4:11:56
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {0, 99999};
+
+int main() {
+	if (code == 0) {
+		std::ifstream in{ "int천개.txt" };
+		if (!in)
+			exit(0);
+
+		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+	}
+
+	else if (code == 1) {
+		std::array<int, 1000> a;  // 정수 배열 선언
+
+		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+			i = uid(dre);
+
+		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+			std::print("{:8d}", i);
+
+		std::cout << std::endl;
+		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+
+		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+		for (int i : a)
+			std::print(out, "{:8} ", i);
+
+		std::print(out, "max: ", *std::max_element(std::begin(a), std::end(a)));
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 4:12:31
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {0, 99999};
+
+int main() {
+	if (code == 0) {
+		std::ifstream in{ "int천개.txt" };
+		if (!in)
+			exit(0);
+
+		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+	}
+
+	else if (code == 1) {
+		std::array<int, 1000> a;  // 정수 배열 선언
+
+		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+			i = uid(dre);
+
+		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+			std::print("{:8d}", i);
+
+		std::cout << std::endl;
+		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+
+		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+		for (int i : a)
+			std::print(out, "{:8} ", i);
+
+		std::print(out, "{:8} ", *std::max_element(std::begin(a), std::end(a)));
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 4:13:20
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {0, 99999};
+
+int main() {
+	if (code == 0) {
+		std::ifstream in{ "int천개.txt" };
+		if (!in)
+			exit(0);
+
+		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+	}
+
+	else if (code == 1) {
+		std::array<int, 1000> a;  // 정수 배열 선언
+
+		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+			i = uid(dre);
+
+		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+			std::print("{:8d}", i);
+
+		std::cout << std::endl;
+		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+
+		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+		for (int i : a)
+			std::print(out, "{:8} ", i);
+
+		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 4:13:47
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {0, 99999};
+
+int main() {
+	if (code == 0) {
+		std::ifstream in{ "int천개.txt" };
+		if (!in)
+			exit(0);
+
+		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+	}
+
+	else if (code == 1) {
+		std::array<int, 1000> a;  // 정수 배열 선언
+
+		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+			i = uid(dre);
+
+		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+			std::print("{:8d}", i);
+
+		std::cout << std::endl;
+		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+
+		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+		for (int i : a)
+			std::print(out, "{:8d} ", i);
+
+		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-11 월요일 오후 4:14:39
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid {0, 99999};
+
+int main() {
+	if (code == 0) {
+		std::ifstream in{ "int천개.txt" };
+		if (!in)
+			exit(0);
+
+		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+	}
+
+	else if (code == 1) {
+		std::array<int, 1000> a;  // 정수 배열 선언
+
+		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+			i = uid(dre);
+
+		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+			std::print("{:8d}", i);
+
+		std::cout << std::endl;
+		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+
+		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+		for (int i : a)
+			std::print(out, "{:8d} ", i);
+
+		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+	}
+
+	save("FileName.cpp");
+}
