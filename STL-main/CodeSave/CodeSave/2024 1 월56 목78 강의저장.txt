@@ -1941,3 +1941,1845 @@ int main() {
 
 	save("FileName.cpp");
 }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:26:44
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+	
+	std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	save("FileName.cpp");
+}
+
+ 
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:29:33
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <algorithm>
+#include <random>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
+// // 값과 값은 공백으로 떨어져 있다.
+// // 가장 큰 값을 찾아 화면에 출력하라.
+
+int main() {
+	std::ifstream in{ "int천개.txt" };
+	if (!in)
+		exit(0);
+	
+	std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+
+	save("FileName.cpp");
+}
+
+ 
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:36:12
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+	auto num = 1;
+	for (int& i : a) {
+		i = num;
+		num++;
+	}
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	for (int i : a)
+	    std::print(out, "{:8d} ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:37:01
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	int num = 1;
+	for (int& i : a) {
+		i = num;
+		num++;
+	}
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	for (int i : a)
+	    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:40:23
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	int num = 1;
+
+	for (int num : a)
+		std::cout << num << std::endl;
+	//for (int& i : a) {
+	//	i = num;
+	//	num++;
+	//}
+
+	//std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	//for (int i : a)
+	//    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:40:52
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a{};
+
+	int num = 1;
+
+	for (int num : a)
+		std::cout << num << std::endl;
+	//for (int& i : a) {
+	//	i = num;
+	//	num++;
+	//}
+
+	//std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	//for (int i : a)
+	//    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:42:07
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+std::array<int, 100> a;
+
+int main() {
+	
+
+	int num = 1;
+
+	for (int num : a)
+		std::cout << num << std::endl;
+	//for (int& i : a) {
+	//	i = num;
+	//	num++;
+	//}
+
+	//std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	//for (int i : a)
+	//    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:43:18
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+std::array<int, 100> a;
+
+int main() {
+	
+
+	int num = 1;
+
+	for (int num : a)
+		std::print("{:8}", num);
+	//for (int& i : a) {
+	//	i = num;
+	//	num++;
+	//}
+
+	//std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	//for (int i : a)
+	//    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 3:45:06
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a{ 1, 2, 3 };
+
+	int num = 1;
+	for (int num : a)
+		std::print("{:8}", num);
+	//for (int& i : a) {
+	//	i = num;
+	//	num++;
+	//}
+
+	//std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+
+	//for (int i : a)
+	//    std::print(out, "{: } ", i);
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:04:04
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+
+	//int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	for (int num : a) {
+		std::print(out, "{:8}", num);
+		std::print(std::cout, "{:8}", num);
+	}
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:06:40
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	//[질문]int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+	// 메모리 400바이트
+	// 파일   800 바이트
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	for (int num : a) {
+		std::print(out, "{} ", num);
+		std::print(std::cout, "{:8}", num);
+	}
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:24:49
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	//[질문]int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+	// 메모리 400 바이트
+	// 파일   292 바이트
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	out.write((char*)a.data(), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:25:29
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	//[질문]int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+	// 메모리 400 바이트
+	// 파일   292 바이트
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	out.write((char*)a.data(), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:26:27
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	//[질문]int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+	// 메모리 400 바이트
+	// 파일   292 바이트
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	out.write((char*)a.data(), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:33:57
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	//[질문]int가 100개를 저장하는데 필요한 메모리는 몇 바이트인가?
+	// 메모리 400 바이트
+	// 파일   292 바이트
+
+	std::ofstream out{ "int100개.txt" };  // 파일에 덮어쓰기 한다.
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:44:04
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<int, 100> a;
+
+	std::iota(a.begin(), a.end(), 1);
+
+	std::ofstream out{ "int100개.txt", std::ios::binary };  // 파일에 덮어쓰기 한다.
+
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:46:17
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<char, 100> a{};
+
+	std::ofstream out{ "글자.txt" };  // 파일에 덮어쓰기 한다.
+
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(char));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:47:17
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<char, 100> a{};
+	for (char& c : a)
+		c = 0x0A;
+
+	std::ofstream out{ "글자.txt" };  // 파일에 덮어쓰기 한다.
+
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(char));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:48:15
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <print>
+#include <array>
+#include <numeric>
+#include "save.h"
+//#define code 1
+
+//[문제] int 100개를 저장할 공간을 확보하자.
+// int 값을 1부터 시작하는 정수로 채워라.
+// int 값을 파일에 저장하라. "int100개.txt"
+
+int main() {
+	std::array<char, 100> a{};
+	a[10] = 10;
+
+	std::ofstream out{ "글자.txt" };  // 파일에 덮어쓰기 한다.
+
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(char));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:53:45
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <random>
+#include "save.h"
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 9999 };
+
+//[문제] 
+
+int main() {
+	std::array <int, 1000> a;
+
+	for (int& num : a)
+		num = uid(dre);
+
+	std::ofstream out{ "int천개", std::ios::binary };
+	out.write(reinterpret_cast<char*>(a.data()), a.size() * sizeof(int));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 4:59:40
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+int main() {
+	std::ifstream in{ "int천개" };
+	if (!in)
+		exit(0);
+
+	std::print("", *std::max_element(std::istream_iterator<int>{in}, {}));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 5:00:57
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+int main() {
+	std::ifstream in{ "int천개", std::ios::binary };
+	if (!in)
+		exit(0);
+
+	std::print(" ", *std::max_element(std::istream_iterator<int>{in}, {}));
+
+	save("FileName.cpp");
+}
+
+
+
+
+
+
+
+
+
+
+//std::default_random_engine dre;
+//std::uniform_int_distribution uid {0, 99999};
+//
+//int main() {
+//	if (code == 0) {
+//		std::ifstream in{ "int천개.txt" };
+//		if (!in)
+//			exit(0);
+//
+//		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
+//	}
+//
+//	else if (code == 1) {
+//		std::array<int, 1000> a;  // 정수 배열 선언
+//
+//		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
+//			i = uid(dre);
+//
+//		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
+//			std::print("{:8d}", i);
+//
+//		std::cout << std::endl;
+//		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
+//
+//		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
+//		for (int i : a)
+//			std::print(out, "{:8d} ", i);
+//
+//		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
+//	}
+//
+//	save("FileName.cpp");
+//}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 5:01:42
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+int main() {
+	std::ifstream in{ "int천개", std::ios::binary };
+	if (!in)
+		exit(0);
+
+	std::print("{} ", *std::max_element(std::istream_iterator<int>{in}, {}));
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 5:08:51
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <array>
+#include <print>
+#include "save.h"
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+int main() {
+	std::ifstream in{ "int천개", std::ios::binary };
+	if (!in) {
+		std::cout << "can not open file." << std::endl;
+		exit(0);
+	}
+
+	int num;
+	int max_value{ std::numeric_limits<int>::min() };
+
+	for (int i = 0; i < 1000; i++) {
+		in.read((char*)&num, 4);
+		if (num > max_value)
+			max_value = num;
+	}
+
+	std::cout << max_value << std::endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-14 목요일 오후 5:11:45
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <array>
+#include <print>
+#include "save.h"
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+int main() {
+	std::ifstream in{ "int천개", std::ios::binary };
+	if (!in) {
+		std::cout << "can not open file." << std::endl;
+		exit(0);
+	}
+
+	std::array<int, 1000> a;
+
+	in.read((char*)a.data(), a.size() * sizeof(int));
+
+	std::cout << *std::max_element(a.begin(), a.end()) << std::endl;
+
+	save("FileName.cpp");
+}

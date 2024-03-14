@@ -4,48 +4,49 @@
 //c++ 복습
 //-----------------------
 #include <iostream>
-#include <fstream>
-#include <print>
-#include <algorithm>
 #include <random>
 #include <array>
+#include <fstream>
 #include "save.h"
-#define code 1
-
-//[문제] 파일 "int천개.txt"에 int값 1000개의 숫자값이 그대로 기록되어있다.
-// // 값과 값은 공백으로 떨어져 있다.
-// // 가장 큰 값을 찾아 화면에 출력하라.
 
 std::default_random_engine dre;
-std::uniform_int_distribution uid {0, 99999};
+std::uniform_int_distribution uidC{ 'a', 'z' };
+std::uniform_int_distribution uidNum{ -9999, 9999 };
+
+
+//[문제] 파일 "int천개"에는 int값 1000개가 기록되어있다.
+// 파일은 바이너리 모드로 열었으며,  기록할 떄 write함수로 4000바이트틑 기록하였다.
+// 파일을 읽어 가장 큰 값을 출력하라
+
+class Dog {
+	char c{ static_cast<char> (uidC(dre)) };
+	int num{ uidNum(dre) };
+
+public:
+	friend std::ostream& operator << ( std::ostream & os, const Dog & dog) {
+		return os << "글자: " << dog.c << " 숫자: " << dog.num << std::endl;
+	}
+};
+
+// [문제] "개들"에는 100객체가 기록되었다. 
+// 바이너리 모드이며, sizeof(Dog) * 100바이트를 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+class Dog {
+	char c;
+	int num;
+};
 
 int main() {
-	if (code == 0) {
-		std::ifstream in{ "int천개.txt" };
-		if (!in)
-			exit(0);
 
-		std::cout << *std::max_element(std::istream_iterator<int>{in}, {}) << std::endl;
-	}
+	std::array<Dog, 100> dogs;
 
-	else if (code == 1) {
-		std::array<int, 1000> a;  // 정수 배열 선언
+	std::ofstream out{ "개들" , std::ios::binary };
 
-		for (int& i : a)  // 배열에 랜덤 숫자들을 저장한다.
-			i = uid(dre);
+	out.write((char*)dogs.data(), dogs.size() * sizeof(Dog));
 
-		for (int i : a)  // 배열에 저장된 랜덤 숫자들을 출력한다.
-			std::print("{:8d}", i);
-
-		std::cout << std::endl;
-		std::cout << "max:" << *std::max_element(std::begin(a), std::end(a)) << std::endl;  // 최대 값을 찾는다
-
-		std::ofstream out{ "int천개.txt" };  // 파일에 덮어쓰기 한다.
-		for (int i : a)
-			std::print(out, "{:8d} ", i);
-
-		std::print(out, "\n{:8} ", *std::max_element(std::begin(a), std::end(a)));
-	}
+	for (const Dog& dog : dogs)
+		std::cout << dog << std::endl;
 
 	save("FileName.cpp");
 }
