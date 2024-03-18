@@ -3783,3 +3783,2026 @@ int main() {
 
 	save("FileName.cpp");
 }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 1:48:00
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 100객체가 기록되었다. 
+// 바이너리 모드이며, sizeof(Dog) * 100바이트를 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+class Dog {
+	char c;
+	int num;
+
+public:
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array <Dog, 100> dogs;
+	in.read((char*)dogs.data(), sizeof(Dog) * 100);
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 1:48:57
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 100객체가 기록되었다. 
+// 바이너리 모드이며, sizeof(Dog) * 100바이트를 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+class Dog {
+	char c;
+	int num;
+
+public:
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array <Dog, 100> dogs;
+	in.read((char*)dogs.data(), sizeof(Dog) * 100);
+
+	for (const Dog & dog : dogs) {
+		dog.show();
+	}
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 1:55:57
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+class Dog {
+	char c;
+	int num;
+
+public:
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+
+	friend std::istream &operator >> (std::istream& is, Dog& dog) {
+		is.read((char*)&dog, sizeof(Dog));
+		return is;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	Dog dog;
+
+	int cnt{};
+	while (in >> dog)
+		++cnt;
+
+	std::cout << "개수: " << cnt << std::endl;
+		
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:04:55
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//num 값이 가장 큰 Dog
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	Dog maxDog;
+
+	for (const Dog& dog : dogs) {
+		if (maxValue < dog.getNum()) {
+			maxValue = dog.getNum();
+			maxDog = dog;
+		}
+	}
+
+	maxDog.show();
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:16:21
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//num 값이 가장 큰 Dog
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); })->show();
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:18:51
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max: ";
+	pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:23:49
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max: ";
+	pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:23:55
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max: ";
+	pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:24:13
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << "  num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max: ";
+	pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:24:22
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max: ";
+	pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:29:32
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int cnt{};
+
+	for (auto a : dogs) {
+		if (a.getNum() < 0)
+			cnt++;
+	}
+
+	std::cout << cnt << std::endl;
+
+	//std::cout << "max" << std::endl;
+	//pos->show();
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:32:54
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 알고리즘 함수를 이용하자 - for루프 사용 x 
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max" << std::endl;
+	pos->show();
+
+	int cnt{};
+	for (const Dog& dog : dogs) {
+		if (0 > dog.getNum())
+			++cnt;
+	}
+	std::cout << cnt << std::endl;
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:33:14
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 알고리즘 함수를 이용하자 - for루프 사용 x 
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max" << std::endl;
+	pos->show();
+
+	int cnt{};
+	for (const Dog& dog : dogs) {
+		if (0 > dog.getNum())
+			++cnt;
+	}
+	std::cout << "음수인 dog의 개수: " << cnt << std::endl;
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:37:29
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 알고리즘 함수를 이용하자 - for루프 사용 x 
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max" << std::endl;
+	pos->show();
+
+	int cnt = std::count_if(dogs.begin(), dogs.end(), [](const Dog& dog) { return 0 > dog.getNum(); });
+
+	std::cout << "음수인 dog의 개수: " << cnt << std::endl;
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:38:23
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 알고리즘 함수를 이용하자 - for루프 사용 x 
+//-----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <print>
+#include <fstream>
+#include <algorithm>
+#include <random>
+#include "save.h"
+
+// [문제] "개들"에는 dog 객체가 기록되었다. 
+// 바이너리 모드이며, write함수로 연속된 메모리를 그대로 기록하였다.
+// Dog의 멤버는 아래와 같다.
+// num값이 가장 큰 Dog를 찾아 화면에 출력하라.
+
+
+class Dog {
+	char c;
+	int num;
+
+public:
+	int getNum() const {
+		return num;
+	}
+
+	void show() const {
+		std::cout << "char: " << c << ", num: " << num << std::endl;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	std::ifstream in{ "개들" , std::ios::binary };
+
+	if (!in) {
+		std::cout << "Can't open file." << std::endl;
+		return 0;
+	}
+
+	std::array<Dog, 100> dogs;
+
+	in.read(reinterpret_cast<char*>(dogs.data()), sizeof(Dog) * 100);
+
+	//[문제] num 값이 음수인 dog의 개수?
+
+	int maxValue{ std::numeric_limits<int>::min() };
+	auto pos = std::max_element(dogs.begin(), dogs.end(), [](const Dog& a, const Dog& b) { return a.getNum() < b.getNum(); });
+
+	std::cout << "max" << std::endl;
+	pos->show();
+
+	int cnt = std::count_if(dogs.begin(), dogs.end(), [](const Dog& dog) { return 0 > dog.getNum(); });
+
+	std::cout << "음수인 dog의 개수: " << cnt << std::endl;
+	//(*pos).show(X)
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:42:59
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << &num << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:43:14
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << num << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:43:22
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << &num << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:43:29
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << &a << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:44:00
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << &num << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:44:33
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int num : a) {
+		cout << &num << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:45:17
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int &num : a) {
+		cout << addressof(num) << endl;
+	}
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:47:19
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+
+	cout << addressof(s) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:47:38
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int& num : a)
+		cout << addressof(num) << endl << endl;
+
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+
+	cout << addressof(s) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:48:04
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+
+	cout <<"STACK-string: " << addressof(s) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:48:46
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string: " << addressof(s) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:49:10
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:51:43
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	cout << "전역 char: " << addressof(gc) << endl;
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:51:52
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	cout << "전역 char: " << addressof(gc) << endl;
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:52:04
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	cout << "전역 char: " << addressof(gc) << endl;
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:53:10
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	save("FileName.cpp");
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:56:30
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE segment: " << addressof(f) << endl;
+
+	save("FileName.cpp");
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:56:37
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE segment: " << addressof(main) << endl;
+
+	save("FileName.cpp");
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:56:59
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << addressof(main) << endl;
+
+	save("FileName.cpp");
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:58:06
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): " << endl << addressof(save) << endl;
+	cout << "f(): " << endl << addressof(f) << endl;
+
+	save("FileName.cpp");
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:58:15
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+	save("FileName.cpp");
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 2:58:27
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 3:00:54
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+	int* p = new int[10];
+	
+	cout << endl;
+	for (int i = 0; i < 10; i++)
+		cout << addressof(p[i]) << endl;
+
+	cout << endl;
+
+
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 3:01:19
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+	int* p = new int[10];
+	
+	cout << endl;
+	cout << "free store" << endl;
+	for (int i = 0; i < 10; i++)
+		cout << addressof(p[i]) << endl;
+
+	cout << endl;
+
+
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 3:01:41
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+	int* p = new int[10];
+	
+	cout << endl;
+	cout << "free store - 자유 메모리 공간" << endl;
+	for (int i = 0; i < 10; i++)
+		cout << addressof(p[i]) << endl;
+
+	cout << endl;
+
+
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 3:02:51
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+void f();  // CODE
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	cout << "STACK-array: " << endl;
+
+	for (int& num : a)
+		cout << addressof(num) << endl;
+
+	cout << endl;
+	string s{"안녕하세요. 메모리 영역 알아보고 있습니다."};
+	cout <<"STACK-string:" << endl  << addressof(s) << endl;
+
+	cout << endl;
+	cout << "DATA segment" << endl;
+	//cout << "전역 char: " << addressof(gc) << endl;  // 화면에 안 나오는 이유?
+	cout << "전역 int   " << addressof(gnum) << endl;
+
+	cout << endl;
+	cout << "CODE - 함수가 기록되어있는 곳: " << endl;
+	cout << "main(): " << addressof(main) << endl;
+	cout << "save(): "<< addressof(save) << endl;
+	cout << "f(): " << addressof(f) << endl;
+
+	double* p = new double[10];
+	
+	cout << endl;
+	cout << "free store - 자유 메모리 공간" << endl;
+	for (int i = 0; i < 10; i++)
+		cout << addressof(p[i]) << endl;
+
+	cout << endl;
+
+
+}
+
+void f() {
+	cout << "나는 함수다" << endl;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-18 월요일 오후 3:04:18
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	string s{"안녕하세요"};
+	double* p = new double[10];
+}
