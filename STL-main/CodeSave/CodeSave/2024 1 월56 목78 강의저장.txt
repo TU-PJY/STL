@@ -5806,3 +5806,1379 @@ int main() {
 	string s{"안녕하세요"};
 	double* p = new double[10];
 }
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:29:06
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개릐 주소 출력
+	string s{"안녕하세요"};
+	double* p = new double[10];
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:29:30
+==================================================
+
+//-----------------------
+// 2024.3.7 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <array>
+#include <string>
+#include "save.h"
+
+using namespace std;
+
+char gc;  // DATA
+int gnum;
+
+int main() {
+	save("FileName.cpp");
+
+	array<int, 10> a;  // int 10개의 주소 출력
+	string s{"안녕하세요"};
+	double* p = new double[10];
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:44:10
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int gnum;  //DATA
+
+
+int main() {  // CODE
+	save("FileName.cpp");
+
+	int num;  // STACK
+	int* p;   //STACK
+	p = new int;  // STACK = free store
+
+	cout << "STACK     " << addressof(p) << endl;
+	cout << "free store" << addressof(*p) << endl;
+	cout << "DATA      " << addressof(gnum) << endl;
+	cout << "CODE      " << addressof(main) << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:44:43
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int gnum;  //DATA
+
+
+int main() {  // CODE
+	save("FileName.cpp");
+
+	int num;  // STACK
+	int* p;   //STACK
+	p = new int;  // STACK = free store
+
+	cout << "STACK      " << addressof(p) << endl;
+	cout << "free store " << addressof(*p) << endl;
+	cout << "DATA       " << addressof(gnum) << endl;
+	cout << "CODE       " << addressof(main) << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:45:52
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int gnum;  //DATA
+
+
+int main() {  // CODE
+	save("FileName.cpp");
+
+	int num;  // STACK
+	int* p;   //STACK
+	p = new int;  // STACK = free store
+
+	cout << "STACK      " << addressof(p) << endl;
+	cout << "free store " << addressof(*p) << endl;
+	cout << "CODE       " << addressof(main) << endl;
+	cout << "DATA       " << addressof(gnum) << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:48:57
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int gnum;  //DATA
+
+
+int main() {  // CODE
+	save("FileName.cpp");
+
+	long long val = 0x7f'ff'ff'ff'ff'ff;
+
+	cout << "사용 가능한 최대 메모리: " << val << endl;
+
+	int num;  // STACK
+	int* p;   //STACK
+	p = new int;  // STACK = free store
+
+	cout << "STACK      " << addressof(p) << endl;
+	cout << "free store " << addressof(*p) << endl;
+	cout << "CODE       " << addressof(main) << endl;
+	cout << "DATA       " << addressof(gnum) << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:49:34
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int gnum;  //DATA
+
+
+int main() {  // CODE
+	save("FileName.cpp");
+
+	long long val = 0x7f'ff'ff'ff'ff'ff;
+
+	cout << "사용 가능한 최대 메모리: " << val << endl;
+
+	int num;  // STACK
+	int* p;   //STACK
+	p = new int;  // STACK = free store
+
+	cout << "STACK      " << addressof(p) << endl;
+	cout << "free store " << addressof(*p) << endl;
+	cout << "CODE       " << addressof(main) << endl;
+	cout << "DATA       " << addressof(gnum) << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:57:24
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[99999999]{};
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:58:09
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[9999]{};
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:58:35
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[10000]{};
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:58:59
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[10000]{};
+
+	cout << sizeof(a) << endl;
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:59:16
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[1000000000]{};
+
+	cout << sizeof(a) << endl;
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 2:59:44
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[1000000000]{};
+
+	cout << sizeof(a) << endl;
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:01:27
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[0x1000]{};
+
+	cout << 0x1000 << endl;
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:02:07
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	//char a[0x1000]{};
+
+	cout << 0x10'00'00 << endl;
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:03:00
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[0x10'00'00'00]{};
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:05:07
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[1'000'000];
+
+
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:05:27
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[2'000'000];
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:07:52
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[2'000'000]; 
+
+	cout << a[2'000'000 - 1] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:08:34
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[2'000'000]; 
+	a[2'000'000 - 1] = 'A';
+
+	cout << a[2'000'000 - 1] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:13:02
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[2'000'000]; 
+
+	for (int i = 999'000; i < 1'000'000; i++) {
+		a[i] = (char)i;
+		cout << i << endl;
+	}
+	
+	for (int i = 1'000'000; i < 1'000'000; i++)
+		cout << a[i] << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:13:59
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	char a[1'000'000]; 
+
+	for (int i = 999'000; i < 1'000'000; i++) {
+		a[i] = (char)i;
+		cout << i << endl;
+	}
+	
+	for (int i = 999'000; i < 1'000'000; i++)
+		cout << a[i] << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:24:20
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c[0x7f'ff'ff'ff];
+
+int main() {
+	save("FileName.cpp");
+
+	cout << 0x7f'ff'ff'ff << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:25:40
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c[2'147'483'647];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	cout << 0x7f'ff'ff'ff << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 3:26:13
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647];  // 2gb 제한
+char c2[2'147'483'647];  // 2gb 제한
+char c3[2'147'483'647];  // 2gb 제한
+char c4[2'147'483'647];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	cout << 0x7f'ff'ff'ff << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:25:16
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647];  // 2gb 제한
+char c2[2'147'483'647];  // 2gb 제한
+char c3[2'147'483'647];  // 2gb 제한
+char c4[2'147'483'647];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	cout << 0x7f'ff'ff'ff << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:25:29
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647];  // 2gb 제한
+char c2[2'147'483'647];  // 2gb 제한
+char c3[2'147'483'647];  // 2gb 제한
+char c4[2'147'483'647];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	cout << 0x7f'ff'ff'ff << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:33:14
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647 / 2];  // 2gb 제한
+char c2[2'147'483'647 / 2];  // 2gb 제한
+char c3[2'147'483'647 / 2];  // 2gb 제한
+char c4[2'147'483'647 / 2];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	c1[1'000'000'000] = 'A';
+	c1[1'000'000'001] = 1;
+
+	cout << c1[1'000'000'000] + c1[1'000'000'001] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:33:30
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647 / 2];  // 2gb 제한
+char c2[2'147'483'647 / 2];  // 2gb 제한
+char c3[2'147'483'647 / 2];  // 2gb 제한
+char c4[2'147'483'647 / 2];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	c1[1'000'000'000] = 'A';
+	c1[1'000'000'001] = 1;
+
+	cout << c1[1'000'000'000] + c1[1'000'000'001] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:33:32
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647 / 2];  // 2gb 제한
+char c2[2'147'483'647 / 2];  // 2gb 제한
+char c3[2'147'483'647 / 2];  // 2gb 제한
+char c4[2'147'483'647 / 2];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	c1[1'000'000'000] = 'A';
+	c1[1'000'000'001] = 1;
+
+	cout << c1[1'000'000'000] + c1[1'000'000'001] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:34:05
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+char c1[2'147'483'647 / 2];  // 2gb 제한
+char c2[2'147'483'647 / 2];  // 2gb 제한
+char c3[2'147'483'647 / 2];  // 2gb 제한
+char c4[2'147'483'647 / 2];  // 2gb 제한
+
+int main() {
+	save("FileName.cpp");
+
+	c1[1'000'000'000] = 'A';
+	c1[1'000'000'001] = 1;
+
+	cout << c1[1'000'000'000] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:42:50
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+char c[100'000'000];  // 디폴트로 초기화
+
+int main() {
+	save("FileName.cpp");
+
+	for (int i = 100'000; i < 100'000'000; i++)
+		cout << c[i] << endl;
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:43:18
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+char c[100'000'000];  // 디폴트로 초기화
+
+int main() {
+	save("FileName.cpp");
+
+	for (int i = 100'000; i < 100'000'000; i++)
+		cout << c[i] + 'A' << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:43:48
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+char c[100'000'000];  // 디폴트로 초기화
+
+int main() {
+	save("FileName.cpp");
+
+	for (int i = 100'000; i < 100'000'000; i++)
+		cout << static_cast<char>(c[i] + 'A') << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:50:26
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+char c[100'000'000]{ 'A', 'B', 'C' };  // 디폴트로 초기화
+
+// 실행파일 크기: 33kb
+
+int main() {
+	save("FileName.cpp");
+
+	for (int i = 0; i < 100; i++)
+		cout << static_cast<char>(c[i] + 'A') << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:50:41
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+char c[100'000'000]{ 'A', 'B', 'C' };  // 디폴트로 초기화
+
+// 실행파일 크기: 33kb
+
+int main() {
+	save("FileName.cpp");
+
+	for (int i = 0; i < 100; i++)
+		cout << c[i] << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 4:59:44
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 2gb 최대
+
+//char c[2'000'000'000]{ 'A', 'B', 'C' };  // 디폴트로 초기화
+
+// 실행파일 크기: 33kb
+
+int main() {
+	save("FileName.cpp");
+
+	//for (int i = 0; i < 100; i++)
+		//cout << c[i] << " ";
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:06:14
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+int num;
+
+int main() {
+	save("FileName.cpp");
+
+	cin >> num;
+
+	int i;
+	int* p;
+	int sum;
+	new int[num];
+
+	*p = i;
+
+	for (int i = 1; i < num; i++) {
+		p[i] = i;
+	}
+
+	for (int i = 0; i < num; i++) {
+		sum += p[i];
+	}
+
+	cout << sum;
+
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:08:28
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+
+	int num;
+	int sum = 0;
+
+	cout << ">> ";
+	cin >> num;
+
+	int *p = new int[num];
+
+	for (int i = 0; i < num; i++) {
+		p[i] = i + 1;
+		sum += i + 1;
+	}
+
+	cout << sum;
+
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:09:26
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+
+	int num;
+	int sum{};
+
+	cout << ">> ";
+	cin >> num;
+
+	int *p = new int[num];
+
+	for (int i = 0; i < num; i++) {
+		p[i] = i + 1;
+		sum += i + 1;
+	}
+
+	cout << "1부터 num까지의 합계: " << sum;
+
+
+
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:10:16
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+		int sum{};
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		for (int i = 0; i < num; i++) {
+			p[i] = i + 1;
+			sum += i + 1;
+		}
+
+		cout << "1부터 num까지의 합계: " << sum;
+	}
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:10:34
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+		int sum{};
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		for (int i = 0; i < num; i++) {
+			p[i] = i + 1;
+			sum += i + 1;
+		}
+
+		cout << "1부터 num까지의 합계: " << sum << endl;;
+	}
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:11:16
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+		long long sum{};
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		for (int i = 0; i < num; i++) {
+			p[i] = i + 1;
+			sum += i + 1;
+		}
+
+		cout << "1부터 num까지의 합계: " << sum << endl;
+	}
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:13:50
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <numeric>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+		long long sum{};
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		iota(p, p + num, 1);
+
+		for (int i = 0; i < num; i++)
+			sum += p[i];
+
+		cout << "1부터 num까지의 합계: " << sum << endl;
+	}
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:17:52
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <numeric>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		iota(p, p + num, 1);
+
+		long sum = accumulate(p, p + num, 0);
+
+		cout << "1부터 num까지의 합계: " << sum << endl;
+	}
+}
+
+==================================================
+FileName.cpp, 저장시간: 2024-03-21 목요일 오후 5:18:23
+==================================================
+
+//-----------------------
+// 2024.3.21 목78
+//
+//c++ 복습
+// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//----------------------
+#include <iostream>
+#include <numeric>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
+// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
+// 메모리의 값을 합산한 값을 출력하라
+
+
+
+int main() {
+	save("FileName.cpp");
+	while (true) {
+		int num;
+
+		cout << ">> ";
+		cin >> num;
+
+		int* p = new int[num];
+
+		iota(p, p + num, 1);
+
+		long long sum = accumulate(p, p + num, 0);
+
+		cout << "1부터 num까지의 합계: " << sum << endl;
+	}
+}
