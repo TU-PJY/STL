@@ -1,8 +1,3 @@
-//-----------
-// save.cpp  í•œ í•™ê¸° ê°•ì˜ë¥¼ ì €ì¥
-// 2024.03.07
-//---------------
-
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -14,29 +9,31 @@
 #include "save.h"
 
 void save(std::string_view filename) {
+	// ÀĞÀ» ÆÄÀÏÀ» ¿¬´Ù
     std::ifstream in{ filename.data() };
+    
     if (!in) {
         std::cout << "Can not open file." << std::endl;
         exit(0);
     }
 	
-	// ì“¸ íŒŒì¼ì„ ë§ë¶™ì´ê¸° ëª¨ë“œë¡œ ì—°ë‹¤
-    std::ofstream out("2024 1 ì›”56 ëª©78 ê°•ì˜ì €ì¥.txt", std::ios::app);
+	// ¾µ ÆÄÀÏÀ» µ¡ºÙÀÌ±â ¸ğµå·Î ¿¬´Ù
+    std::ofstream out("2024 1 ¿ù56 ¸ñ78 °­ÀÇÀúÀå.txt", std::ios::app);
 
-	// ì €ì¥ëœ ì‹œê°„ì„ íŒŒì¼ì— ê¸°ë¡í•œë‹¤
+	// ÀúÀåµÈ ½Ã°£À» ÆÄÀÏ¿¡ ±â·ÏÇÑ´Ù
     auto now = std::chrono::system_clock::now();
-    auto time = std::chrono::system_clock::to_time_t(now);  // utc ì‹œê°„ìœ¼ë¡œ ë³€í™˜
-    auto lt = localtime(&time);  // í˜„ì§€ ì‹œê°„ìœ¼ë¡œ ë³€í™˜
+    auto time = std::chrono::system_clock::to_time_t(now);  // utc ½Ã°£À¸·Î º¯È¯ 
+    auto lt = localtime(&time);  // ÇöÁö ½Ã°£À¸·Î º¯È¯ 
 
     _wsetlocale(LC_ALL, L"korean"); 
     out << "\n" << "\n";
     out << "==================================================" << "\n";
-    out << filename << std::put_time(lt, ", ì €ì¥ì‹œê°„: %x %A %X") << std::endl;
+    out << filename << std::put_time(lt, ", ÀúÀå½Ã°£: %x %A %X") << std::endl;
     out << "==================================================" << std::endl;
 
     out << std::endl;
-
-	// ì½ì„ íŒŒì¼ì˜ ëª¨ë“  ë‚´ìš©ì„ ì½ì–´ ì“¸ íŒŒì¼ì— ë§ë¶™ì¸ë‹¤.
+	
+	// ÀĞÀ» ÆÄÀÏÀÇ ¸ğµç ³»¿ëÀ» ÀĞ¾î ¾µ ÆÄÀÏ¿¡ µ¡ºÙÀÎ´Ù.
     std::vector<char> v{ std::istreambuf_iterator<char>{in}, {} };
     std::copy(v.begin(), v.end(), std::ostreambuf_iterator<char>{out});
 }

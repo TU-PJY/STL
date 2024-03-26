@@ -1,6 +1,6 @@
 [Project]
-filename=STL-Dev.dev
-name=STL-Dev
+FileName=STL.dev
+Name=STL
 Type=1
 Ver=2
 ObjFiles=
@@ -27,8 +27,8 @@ CommandLine=
 Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=7
-CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+CompilerSet=6
+CompilerSettings=0000000000000000000000000
 UnitCount=3
 
 [VersionInfo]
