@@ -1,0 +1,31 @@
+# Project: STL-Dev
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = FileName.o save.o
+LINKOBJ  = FileName.o save.o
+LIBS     = -L"C:/mingw64/lib" -L"C:/mingw64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/mingw64/include" -I"C:/mingw64/x86_64-w64-mingw32/include" -I"C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include"
+CXXINCS  = -I"C:/mingw64/include" -I"C:/mingw64/x86_64-w64-mingw32/include" -I"C:/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include"
+BIN      = STL-Dev.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+FileName.o: FileName.cpp
+	$(CPP) -c FileName.cpp -o FileName.o $(CXXFLAGS)
+
+save.o: save.cpp
+	$(CPP) -c save.cpp -o save.o $(CXXFLAGS)
