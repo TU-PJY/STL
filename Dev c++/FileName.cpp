@@ -1,36 +1,55 @@
-#include <iostream>
 //-----------------------
-// 2024.3.21 목78
-//
-//c++ 복습
-// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//목78
+// callable type -> 정렬 예제에서 시작(qsort -> sort) 
 //----------------------
-#include <numeric>
-#include <algorithm>
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
 #include "save.h"
 
 using namespace std;
 
 // 문제
-// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
-// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
-// 메모리의 값을 합산한 값을 출력하라
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// qsort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
 
 int main() {
-	save("FileName.cpp");
+	(*save)("FileName.cpp");
 	
-	while (true) {
-		int num;
+	for(int &num: a)
+		num = uid(dre);
+		
+	// qsort() -> c함수이지만 generic 함수 
+	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
+	
+	int (*qs2)(const void* , const void* ) = qs;
+	
+	qsort(a.data(), a.size(), sizeof(int), qs2);
+	
+	for(int num : a)
+		cout << num << endl;
+}
 
-		cout << ">> ";
-		cin >> num;
-
-		int* p = new int[num];
-
-		iota(p, p + num, 1);
-
-		long long sum = accumulate(p, p + num, 0);
-
-		cout << "1부터 num까지의 합계: " << sum << endl;
-	}
+int qs(const void* a, const void* b) {
+	int x = *(int*) a;
+	int y = *(int*) b;
+	
+	if(x < y)
+		return -1;
+		
+	else if(x > y)
+		return 1;
+		
+	return 0;
 }

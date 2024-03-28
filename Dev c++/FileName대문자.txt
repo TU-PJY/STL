@@ -1,0 +1,34 @@
+//-----------------------
+//목78
+//----------------------
+#INCLUDE <IOSTREAM>
+#INCLUDE <NUMERIC>
+#INCLUDE <ALGORITHM>
+#INCLUDE <FSTREAM> 
+#INCLUDE <STRING>
+#INCLUDE "SAVE.H"
+
+USING NAMESPACE STD;
+
+// 문제
+//"FILENAME.CPP"의 모든 영문자를 대문자로 변환하여 "FILENAME대문자.TXT"에 저장하라. 
+
+// 이 문제를 다른 방식으로 해결해 보자 
+
+INT MAIN() {
+	SAVE("FILENAME.CPP");
+	
+	IFSTREAM IN {"FILENAME.CPP", IOS::BINARY};
+	
+	IF(!IN) {
+		COUT << "CAN'T OPEN FILE" << ENDL;
+		RETURN -333;
+	}
+	
+	OFSTREAM OUT {"FILENAME대문자.TXT", IOS::BINARY};
+	
+	// 이 답이 괜찮다고 생각? -> 변환 -> TRANSFORM 
+	
+	TRANSFORM(ISTREAMBUF_ITERATOR<CHAR>{IN}, {}, OSTREAMBUF_ITERATOR<CHAR>{OUT}, 
+												[](CHAR C) {RETURN TOUPPER(C);}); 
+}
