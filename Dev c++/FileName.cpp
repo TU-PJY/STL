@@ -1,11 +1,13 @@
 //-----------------------
 //목78
-// callable type -> 정렬 예제에서 시작(qsort -> sort) 
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
 //----------------------
-#include <iostream>
-#include <random>
-#include <array>
-#include <cstdlib>
+#include <iostream>			
 #include "save.h"
 
 using namespace std;
@@ -13,43 +15,25 @@ using namespace std;
 // 문제
 // int 100개를 저장할 공간을 확보하라
 // int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
-// qsort를 사용하여 오름차순으로 정렬 
+// sort를 사용하여 오름차순으로 정렬 
 // 정렬된 int값을 한 줄에 10개씩 출력하라 
 
-int qs(const void* a, const void* b); 
+  auto lambda1 = []() {cout << "나는 람다" << endl;};
 
-default_random_engine dre;
-uniform_int_distribution uid {1, 99999};
 
-array<int, 100> a;
-
+auto lambda2 = []() {cout << "나는 람다" << endl;};
 
 int main() {
-	(*save)("FileName.cpp");
-	
-	for(int &num: a)
-		num = uid(dre);
-		
-	// qsort() -> c함수이지만 generic 함수 
-	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
-	
-	int (*qs2)(const void* , const void* ) = qs;
-	
-	qsort(a.data(), a.size(), sizeof(int), qs2);
-	
-	for(int num : a)
-		cout << num << endl;
+	save("FileName.cpp");
+
+
+    cout << typeid(lambda1).name() << endl;
+    cout << typeid(lambda2).name() << endl;
 }
 
-int qs(const void* a, const void* b) {
-	int x = *(int*) a;
-	int y = *(int*) b;
-	
-	if(x < y)
-		return -1;
-		
-	else if(x > y)
-		return 1;
-		
-	return 0;
-}
+
+
+
+
+
+

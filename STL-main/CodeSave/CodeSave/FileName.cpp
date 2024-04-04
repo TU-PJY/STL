@@ -1,37 +1,48 @@
 //-----------------------
-// 2024.3.21 목78
-//
-//c++ 복습
-// 실행 파일의 메모리 영역 - STACK, DATA, CODE, free store(heap)
+//목78
+// 
 //----------------------
-#include <iostream>
-#include <numeric>
-#include <algorithm>
+#include <iostream>			
+#include <memory>
 #include "save.h"
 
 using namespace std;
 
-// 문제
-// 사용자가 입력한 int num값을 받아 free store int[num]메모리를 확보하라.
-// 확보 메모리의 내용을 1부터 시작하여 1씩 증가하는 int 값으로 채워라.
-// 메모리의 값을 합산한 값을 출력하라
 
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
 
 
 int main() {
 	save("FileName.cpp");
-	while (true) {
-		int num;
 
-		cout << ">> ";
-		cin >> num;
+	String s{ "STL 공부를 위한 class" };
 
-		int* p = new int[num];
+	cout << s << endl;
 
-		iota(p, p + num, 1);
+	String t = move(s);
 
-		long long sum = accumulate(p, p + num, 0);
+	cout << t << endl;
+ }
 
-		cout << "1부터 num까지의 합계: " << sum << endl;
-	}
-}
+
+
+
+
+
+

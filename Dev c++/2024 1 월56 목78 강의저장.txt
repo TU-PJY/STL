@@ -1074,3 +1074,905 @@ int qs(const void* a, const void* b) {
 		
 	return 0;
 }
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:32:26
+==================================================
+
+//-----------------------
+//목78
+// callable type -> 정렬 예제에서 시작(qsort -> sort) 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// qsort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+		
+	// qsort() -> c함수이지만 generic 함수 
+	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
+	
+	int (*qs2)(const void* , const void* ) = qs;
+	
+	qsort(a.data(), a.size(), sizeof(int), qs2);
+	
+	for(int num : a)
+		cout <<"{:8}"<< num << endl;
+}
+
+int qs(const void* a, const void* b) {
+	int x = *(int*) a;
+	int y = *(int*) b;
+	
+	if(x < y)
+		return -1;
+		
+	else if(x > y)
+		return 1;
+		
+	return 0;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:37:36
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+		
+	// qsort() -> c함수이지만 generic 함수 
+	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
+	
+	// C++ㄴ std::sort로 정렬한다 
+	bool qs (int, int); 
+	
+	sort(a.begin(), a.end(), qs);
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+bool qs(int a, int b) {
+	return a < b;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:38:20
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+		
+	// qsort() -> c함수이지만 generic 함수 
+	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
+	
+	// C++ㄴ std::sort로 정렬한다 
+	bool qs (int, int); 
+	
+	sort(a.begin(), a.end(), qs);
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+bool qs(int a, int b) {
+	return a > b;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:38:42
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100000> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+		
+	// qsort() -> c함수이지만 generic 함수 
+	// qsort(시작 번지, 개수, 한 개의 크기, 정렬 방법)
+	
+	// C++ㄴ std::sort로 정렬한다 
+	bool qs (int, int); 
+	
+	sort(a.begin(), a.end(), qs);
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+bool qs(int a, int b) {
+	return a > b;
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:49:26
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+	
+	// C++ std::sort로 정렬한다 
+	bool qs (int, int); 
+	
+	sort(a.begin(), a.end());
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+bool qs(int a, int b) {
+	return a < b;  // 오름차순 ascending order 디폴트 
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 13:53:17
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int qs(const void* a, const void* b); 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+	
+	// C++ std::sort로 정렬한다 
+	bool qs (int, int); 
+	
+	sort(a.begin(), a.end(), [](int a, int b){return a > b;});
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+bool qs(int a, int b) {
+	return a < b;  // 오름차순 ascending order 디폴트 
+}
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:00:24
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+class Dog {
+	public:
+		bool operator()(int a, int b) {
+			return a < b;
+		}
+};
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+	
+	// std::sort로 정렬한다 
+	Dog dog;
+	sort(a.begin(), a.end(), dog);
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:00:42
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+class Dog {
+	public:
+		bool operator()(int a, int b) {
+			return a > b;
+		}
+};
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+	
+	// std::sort로 정렬한다 
+	Dog dog;
+	sort(a.begin(), a.end(), dog);
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:02:13
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <cstdlib>
+#include <algorithm>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+default_random_engine dre;
+uniform_int_distribution uid {1, 99999};
+
+array<int, 100> a;
+
+
+class Dog {
+	public:
+		bool operator()(int a, int b) {
+			return a > b;
+		}
+};
+
+int main() {
+	(*save)("FileName.cpp");
+	
+	for(int &num: a)
+		num = uid(dre);
+	
+	// std::sort로 정렬한다 
+	sort(a.begin(), a.end(), Dog{});
+	
+	for(int num : a)
+		cout << num << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:11:38
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    []() {
+		cout << "나는 람다" << endl;
+		};
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:11:51
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    []() {
+		cout << "나는 람다" << endl;
+		};
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:12:58
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    []() {
+		cout << "나는 람다" << endl;
+		}();
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:16:27
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    auto lambda = []() {cout << "나는 람다" << endl;};
+    
+    cout << typeid(lambda).name() << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:16:51
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    auto lambda = []() {cout << "나는 람다" << endl;};
+    
+    cout << typeid(lambda).name() << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:17:36
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+int main() {
+	save("FileName.cpp");
+
+
+    auto lambda1 = []() {cout << "나는 람다" << endl;};
+
+
+    auto lambda2 = []() {cout << "나는 람다" << endl;};
+    
+    cout << typeid(lambda1).name() << endl;
+    cout << typeid(lambda2).name() << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:18:29
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+  auto lambda1 = []() {cout << "나는 람다" << endl;};
+
+
+auto lambda2 = []() {cout << "나는 람다" << endl;};
+
+int main() {
+	save("FileName.cpp");
+
+
+  
+    
+    cout << typeid(lambda1).name() << endl;
+    cout << typeid(lambda2).name() << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:19:57
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+auto lambda1 = []() {cout << "나는 람다" << endl;};
+auto lambda2 = []() {cout << "나는 람다" << endl;};
+
+int main() {
+	save("FileName.cpp");
+
+
+  
+    
+    cout << typeid(lambda1).name() << endl;
+    cout << typeid(lambda2).name() << endl;
+}
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 04/01/24 Monday 14:23:03
+==================================================
+
+//-----------------------
+//목78
+// callable type -> STL std::sort
+// sort 함수에 정렬 방법을 어떻게 알려주었나?  
+// 1. 함수 포인터 전달
+// 2. 람다(lamda) -> 정체는? 
+// 3. 함수 객체 
+// 기말시험 8주 2일 -> 4월 25일 
+//----------------------
+#include <iostream>			
+#include "save.h"
+
+using namespace std;
+
+// 문제
+// int 100개를 저장할 공간을 확보하라
+// int 100개의 값을 [1, 99999] 사이의 랜덤값으로 설정하라
+// sort를 사용하여 오름차순으로 정렬 
+// 정렬된 int값을 한 줄에 10개씩 출력하라 
+
+auto lambda1 = []() {cout << "나는 람다" << endl;};
+auto lambda2 = []() {cout << "나는 람다" << endl;};
+
+int main() {
+	save("FileName.cpp");
+
+
+  
+    
+    cout << typeid(lambda1).name() << endl;
+    cout << typeid(lambda2).name() << endl;
+}
+
+
+
+
+
+
+
