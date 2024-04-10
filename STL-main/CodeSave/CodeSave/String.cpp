@@ -1,0 +1,78 @@
+//-------------------------------------------
+// String.cpp  STL의 동작을 관찰하기 위함
+// 
+// 2024.04.04 시작
+// 2024/04.04 관찰 스위치 추가
+//-------------------------------------------
+#include "String.h"
+
+bool 관찰{false};
+
+size_t String::uid{};
+
+// 이 클래스는 String()과 ~String()을 코딩할 이유가 없지만, 관찰을 위해 코딩
+String::String() : id{++uid}
+{
+	if(관찰)
+		std::cout << "[" << id << "] 디폴트 생성, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+}
+
+String::~String() {
+	if(관찰)
+		std::cout << "[" << id << "] 소멸, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+}
+
+String::String(const char* s)
+	: len{ strlen(s) }, id{++uid}
+{
+	p.reset(new char[len]);
+	memcpy(p.get(), s, len);
+
+	if (관찰)
+		std::cout << "[" << id << "] 생성(char*), 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+}
+
+
+// 복사 생성자 / 복사 할당 연산자 - 2024.04.04
+String::String(const String& other)
+	: len{ other.len }, id{++uid}
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰)
+		std::cout << "[" << id << "] 복사 생성, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+}
+
+
+String& String::operator=(const String& rhs) {
+	if (this == &rhs)  // 자기 자신 할당 방지
+		return *this;
+
+	len = rhs.len;
+	p.release();
+	p = std::make_unique<char[]>(len);
+
+	memcpy(p.get(), rhs.p.get(), len);
+
+	if (관찰)
+		std::cout << "[" << id << "] 복사 할당 연산자, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+
+	return *this;
+}
+
+size_t String::get_len() const {
+	return len;
+}
+
+std::istream& operator >> (std::istream& is, String& s) {
+	std::string ts;
+	is >> ts;
+	s.len = ts.size();
+
+	s.p = std::make_unique<char[]>(s.len);
+
+	memcpy(s.p.get(), ts.data(), s.len);
+
+	return is;
+}

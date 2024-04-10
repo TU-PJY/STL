@@ -62224,3 +62224,2535 @@ int main() {
 
 
 
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:23:09
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+	cout << s << endl;
+
+	String t = move(s);
+
+	cout << t << endl;
+ }
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:23:19
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+	cout << s << endl;
+
+	String t = move(s);
+
+	cout << t << endl;
+ }
+
+
+
+
+
+
+
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:24:19
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+	cout << s << endl;
+
+	String t = move(s);
+
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:30:39
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+
+	String t = move(s);
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:41:39
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	// 복사 생성자 / 복사 할당 연산자 - 2024.04.0.4
+
+	String(const String& other) : len{ other.len } {
+		p = make_unique<char[]>(len);
+		memcpy(p.get(), other.p.get(), len);
+	}
+
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+	String t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:41:50
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+
+using namespace std;
+
+
+class String {
+private:
+	size_t len{};
+	unique_ptr <char[]> p{};
+
+public:
+	String(const char* s) : len{ strlen(s) } {
+		p.reset(new char[len]);
+		memcpy(p.get(), s, len);
+	}
+
+	// 복사 생성자 / 복사 할당 연산자 - 2024.04.0.4
+
+	String(const String& other) : len{ other.len } {
+		p = make_unique<char[]>(len);
+		memcpy(p.get(), other.p.get(), len);
+	}
+
+
+	friend ostream& operator << (ostream& os, const String& s) {
+		for (size_t i = 0; i < s.len; ++i)
+			os << s.p.get()[i];
+		return os;
+	}
+};
+
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+
+	String t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 3:51:48
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	//String t;
+
+	//t = s;
+
+	cout << s << endl;
+	//cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:04:27
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:04:34
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:05:36
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:07:10
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:19:41
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:20:32
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:21:02
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:21:20
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include "save.h"
+#include "String.h"
+
+using namespace std;
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "STL 공부를 위한 class" };
+	String t;
+
+	t = s;
+
+	cout << s << endl;
+	cout << t << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:23:10
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:24:06
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:25:40
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년 ",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:25:51
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:26:40
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	for (String s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:27:12
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:33:03
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:33:47
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:35:08
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:35:16
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:35:29
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:35:59
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:37:41
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:38:29
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:40:09
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), String{});
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:50:03
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:52:50
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:53:09
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:54:50
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:55:33
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String a, const String b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:56:12
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 4:56:32
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 5:00:53
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-04 목요일 오후 5:02:02
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 1:28:12
+==================================================
+
+//-----------------------
+//목78
+// 
+//----------------------
+#include <iostream>			
+#include <memory>
+#include <array>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	std::array<String, 5> a{
+		"2024년",
+		"4월",
+		"4일",
+		"목요일",
+		"재미있는 STL"
+	};
+
+	관찰 = true;
+	std::sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+	관찰 = false;
+
+	// 문제 a를 글자길이 오름차순으로 정렬하라
+	for (String& s : a) {
+		std::cout << s << std::endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:29:10
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is a object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a{};  // int[10]
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:31:08
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a{};  // int[10]
+
+	cout << typeid(a.begin()).name();
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:38:05
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (array <int, 10> ::iterator i = a.begin(); i != a.end(); ++i) {
+		cout << i.operator * () << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:38:17
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (array <int, 10> ::iterator i = a.begin(); i != a.end(); ++i) {
+		cout << i.operator * () << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:38:18
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (array <int, 10> ::iterator i = a.begin(); i != a.end(); ++i) {
+		cout << i.operator * () << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:38:26
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a{};  // int[10]
+
+	for (array <int, 10> ::iterator i = a.begin(); i != a.end(); ++i) {
+		cout << i.operator * () << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:38:29
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a{};  // int[10]
+
+	for (array <int, 10> ::iterator i = a.begin(); i != a.end(); ++i) {
+		cout << i.operator * () << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:40:27
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	list <int> a;  // int[10]
+
+	for (auto i = a.begin(); i != a.end(); ++i) {
+		cout << *i << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:40:37
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	list <int> a(10);  // int[10]
+
+	for (auto i = a.begin(); i != a.end(); ++i) {
+		cout << *i << endl;
+	}
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:41:38
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (int i = 0; i < a.size(); ++i)
+		cout << a[i] << endl;
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:42:41
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (int num : a)
+		cout << a[num] << endl;
+
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:42:44
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	for (int num : a)
+		cout << a[num] << endl;
+
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:43:20
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	//array <int, 10> a;  // int[10]
+	list <int> a(200);
+
+	for (int num : a)
+		cout << num << endl;
+
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:46:03
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	cout << a[10] << endl;
+
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:46:16
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+
+	cout << a[-3] << endl;
+
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:49:31
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+	cout << a.at(num) << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:49:33
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+	cout << a.at(num) << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:49:38
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+	cout << a.at(num) << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:49:44
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+	cout << a.at(num) << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:51:23
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+
+	START:
+	try {
+		cout << a.at(num) << endl;
+	}
+	catch (...) {
+		cout << "index err" << endl;
+		goto START;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:51:50
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+
+	START:
+	try {
+		cout << a.at(num) << endl;
+	}
+	catch (...) {
+		cout << "index err" << endl;
+		cin.clear();
+		goto START;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:51:54
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <int, 10> a;  // int[10]
+	int num{};
+
+	cout << "몇 번쨰 값을 알고 싶은가?" << endl;
+	cin >> num;
+
+	START:
+	try {
+		cout << a.at(num) << endl;
+	}
+	catch (...) {
+		cout << "index err" << endl;
+		cin.clear();
+		goto START;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:56:25
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <string, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	string s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const string& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:56:43
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <string, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	string s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const string& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:58:32
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:59:33
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 2:59:57
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:00:06
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:01:03
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:01:13
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:08:07
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:08:12
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:08:46
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	for (const String& s : a)
+		cout << s << endl;
+
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:20:45
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() > b.get_len(); });
+
+	for (const String& s : a)
+		cout << s << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-08 월요일 오후 3:20:55
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+//----------------------
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	array <String, 30> a;  // int[10]
+
+	// a에 filename.cpp에 있는 string을 30개 읽어 저장하라.
+	fstream in{ "FileName.cpp" };
+
+	if (!in)
+		return 20240408;
+
+	String s;
+
+	for (int i = 0; i < a.size(); ++i) {
+		in >> a[i];
+	}
+
+	sort(a.begin(), a.end(), [](const String& a, const String& b) {return a.get_len() < b.get_len(); });
+
+	for (const String& s : a)
+		cout << s << endl;
+ }
