@@ -26,6 +26,10 @@ public:
 	String(const String& other);
 	String& operator=(const String& rhs);
 
+	//이동 생성자/이동 할당 연산자 -2024.4.11
+	String(String&& other);
+	String& operator = (String&& rhs);
+
 	size_t get_len() const;
 
 	friend std::ostream& operator << (std::ostream& os, const String& s) {

@@ -20,7 +20,7 @@ void save(std::string_view filename) {
 	}
 
 	// 쓸 파일을 덧붙이기 모드로 연다
-	std::ofstream out("2024 1 월56 목78 강의저장.txt", std::ios::app);
+	std::ofstream out("..//..//..//2024 1 월56 목78 강의저장.txt", std::ios::app);
 
 	// 저장된 시간을 파일에 기록한다
 	auto now = std::chrono::system_clock::now();

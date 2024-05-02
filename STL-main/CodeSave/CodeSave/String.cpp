@@ -61,6 +61,37 @@ String& String::operator=(const String& rhs) {
 	return *this;
 }
 
+
+
+//이동 생성자/이동 할당 연산자 -2024.4.11
+String::String(String&& other) : len{ other.len }, id{++uid} {
+	p = std::move(other.p);
+	other.len = 0;
+	other.p.reset();
+
+	if (관찰)
+		std::cout << "[" << id << "] 이동 생성, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+}
+
+
+String& String::operator = (String&& rhs) {
+	if(this != &rhs)
+		return *this;
+
+	len = rhs.len;
+	p = std::move(rhs.p);
+
+	rhs.len = 0;
+	rhs.p.reset();
+
+	if (관찰)
+		std::cout << "[" << id << "] 이동 복사 할당 연산자, 개수: " << len << ", 주소: " << static_cast<void*>(p.get()) << std::endl;
+
+	return *this;
+}
+
+
+
 size_t String::get_len() const {
 	return len;
 }

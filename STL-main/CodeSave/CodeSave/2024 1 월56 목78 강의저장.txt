@@ -64756,3 +64756,1728 @@ int main() {
 	for (const String& s : a)
 		cout << s << endl;
  }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:38:05
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:38:11
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:40:18
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+
+	cout << v.size() << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:40:27
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+
+	cout << v.size() << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:40:45
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	cout << v.size() << endl;
+
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:41:23
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+	
+	vector<int> v;
+	cout << "v의 크기: " << sizeof(vector<int>) << endl;
+
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+
+	for (int num : v)
+		cout << num << ' ';
+	cout << endl;
+
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:57:42
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	
+	while (true) {
+		vector<int> v;
+
+		cout << "원하는 int 값 입력 >> ";
+		int num{};
+		cin >> num;
+
+		for (int i = 0; i < num; ++i)
+			v.push_back(uid(dre));
+
+		cout << "오른차순 정렬...";
+
+		sort(v.begin(), v.end());
+		cout << endl;
+
+		for (int num : v)
+			print("{:8}", num);
+
+		cout << endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 3:58:19
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	
+	while (true) {
+		vector<int> v;
+
+		cout << "원하는 int 값 입력 >> ";
+		int num{};
+		cin >> num;
+
+		for (int i = 0; i < num; ++i)
+			v.push_back(uid(dre));
+
+		cout << "오른차순 정렬...";
+
+		sort(v.begin(), v.end());
+		cout << endl;
+
+		for (int num : v)
+			print("{:8}", num);
+
+		cout << endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:00:24
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	
+	while (true) {
+		vector<int> v;
+
+		cout << "원하는 int 값 입력 >> ";
+		int num{};
+		cin >> num;
+
+		for (int i = 0; i < num; ++i)
+			v.push_back(uid(dre));
+
+		cout << "오른차순 정렬...";
+
+		sort(v.begin(), v.end());
+		cout << endl;
+
+		// 제일 뒤의 100개만 출력
+		for (int num : v | views::drop(v.size() - 100))
+			print("{:8}", num);
+
+		cout << endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:03:30
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	
+	while (true) {
+		vector<int> v;
+
+		cout << "원하는 int 값 입력 >> ";
+		int num{};
+		cin >> num;
+
+		for (int i = 0; i < num; ++i)
+			v.push_back(uid(dre));
+
+		cout << "오른차순 정렬...";
+
+		sort(v.begin(), v.end());
+		cout << endl;
+
+		// 제일 뒤의 100개만 출력
+		for (int num : v | views::reverse)
+			print("{:8}", num);
+
+		cout << endl;
+	}
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:05:14
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:05:54
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:06:01
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << "main 끝" << endl << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:06:08
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:20:47
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("2024년");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:29:36
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("2024년");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:30:15
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("2024년");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:30:25
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("4월");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:39:41
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("4월");
+	
+	cout << endl << endl;
+	v.push_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:45:56
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("4월");
+	
+	cout << endl << endl;
+	v.push_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:47:17
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(2);
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("4월");
+	
+	cout << endl << endl;
+	v.push_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:47:24
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(3);
+
+	v.push_back("2024년");
+
+	cout << endl << endl;
+	v.push_back("4월");
+	
+	cout << endl << endl;
+	v.push_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:54:57
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(10);
+
+	v.emplace_back("2024년");
+
+	cout << endl << endl;
+	v.emplace_back("4월");
+	
+	cout << endl << endl;
+	v.emplace_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:55:20
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.emplace_back("2024년");
+
+	cout << endl << endl;
+	v.emplace_back("4월");
+	
+	cout << endl << endl;
+	v.emplace_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:55:32
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+
+	cout << endl << "main 끝" << endl;
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:55:37
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:56:08
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(10);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:56:43
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(10);
+
+	v.emplace_back(String("2024년"));
+	v.emplace_back(String("4월"));
+	v.emplace_back(String("11일"));
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:56:48
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.emplace_back(String("2024년"));
+	v.emplace_back(String("4월"));
+	v.emplace_back(String("11일"));
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:57:15
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String*> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.emplace_back(new String("2024년"));
+	v.emplace_back(new String("4월"));
+	v.emplace_back(new String("11일"));
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:57:27
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String*> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.push_back(new String("2024년"));
+	v.push_back(new String("4월"));
+	v.push_back(new String("11일"));
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:57:29
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String*> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	v.reserve(10);
+
+	v.push_back(new String("2024년"));
+	v.push_back(new String("4월"));
+	v.push_back(new String("11일"));
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:57:53
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(10);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 4:58:17
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:08:14
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.emplace_back("2024년");
+	v.emplace_back("4월");
+	v.emplace_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:09:08
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.push_back("2024년");
+	v.push_back("4월");
+	v.push_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:09:56
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.push_back("2024년");
+	//v.push_back("4월");
+	//v.push_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:11:09
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.push_back("2024년");
+	//v.push_back("4월");
+	//v.push_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:12:32
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <print>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 999'999};
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+	
+	vector<String> v;
+	// 벡터는 공간을 예약하고 사용하는것이 필수
+	//v.reserve(2);
+
+	v.push_back("2024년");
+	v.push_back("4월");
+	v.push_back("11일");
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:16:51
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계와 평균을 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+ }
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:18:15
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v | views::drop(v.size() - 100))
+		cout << num << ' ';
+
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:19:01
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v)
+		cout << num << ' ';
+
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:19:07
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v)
+		cout << num << ' ';
+
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:19:17
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v)
+		cout << num << ' ';
+
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-04-11 목요일 오후 5:19:37
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v)
+		cout << num << ' ';
+
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 3:32:39
+==================================================
+
+//-----------------------
+//목78
+// STL Container - A container is an object that stores other objects
+// Sequence container - Vector
+//----------------------
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include "save.h"
+#include "String.h"
+using namespace std;
+
+// 문제: 키보드에서 int값을 받아 합계를 출력하라
+// 평균을 소수점 2번째 자리까지 출력하라.
+// vector<int>
+
+
+extern bool 관찰;  // 메시기 관찰 원할 시 true
+
+int main() {
+	save("FileName.cpp");
+
+	vector <int> v{ istream_iterator<int> {cin}, {} };
+
+	for (int num : v)
+		cout << num << ' ';
+
+	cout << endl;
+ }
