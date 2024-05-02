@@ -1,0 +1,310 @@
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:20:06
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <String> con1{"민준", "서준", "하준"};
+	list <String> con2{"도윤", "시우", "은우", "지호"};
+
+	//merge(con1.begin(), con1.end(), con2.begin(), con2.end(), ostream_iterator<String>{cout, "\n"});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:20:12
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <String> con1{"민준", "서준", "하준"};
+	list <String> con2{"도윤", "시우", "은우", "지호"};
+
+	//merge(con1.begin(), con1.end(), con2.begin(), con2.end(), ostream_iterator<String>{cout, "\n"});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:28:47
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <string> con1{"민준", "서준", "하준"};
+	list <string> con2{"도윤", "시우", "은우", "지호"};
+
+	merge(con1.begin(), con1.end(), con2.begin(), con2.end(), ostream_iterator<string>{cout, "\n"});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:43:39
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+	관찰 = true;
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <String> con1{"민준", "서준", "하준"};
+	list <String> con2{"도윤", "시우", "은우", "지호"};
+
+	con1.merge(con2);
+
+	for (const String& s : con1)
+		cout << s << " ";
+
+	cout << endl;
+	cout << "merge된 컨테이너" << endl;
+	for (const String& s : con2)
+		cout << s << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:44:37
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <String> con1{"민준", "서준", "하준"};
+	list <String> con2{"도윤", "시우", "은우", "지호"};
+
+	관찰 = true;
+	con1.merge(con2);
+
+	for (const String& s : con1)
+		cout << s << " ";
+
+	cout << endl;
+	cout << "merge된 컨테이너" << endl;
+	for (const String& s : con2)
+		cout << s << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:44:57
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+
+	// 리스트가 잘할 수 있는 동작 - merge
+	list <String> con1{"민준", "서준", "하준"};
+	list <String> con2{"도윤", "시우", "은우", "지호"};
+
+	관찰 = true;
+	con1.merge(con2);
+	관찰 = false;
+
+	for (const String& s : con1)
+		cout << s << " ";
+
+	cout << endl;
+	cout << "merge된 컨테이너" << endl;
+	for (const String& s : con2)
+		cout << s << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 4:56:01
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// list - 자기가 잘 하는 동작을 멤버함수로 제공한다
+//		  sort, remove, unique, merge, (splice)
+//		  전역 알고리즘 함수가 있더라도 이 함수들을 list가 제공하는 이유를 생각해보자
+//----------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include <string>
+#include <fstream>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+
+	// 문제
+	// FileName.cpp에 있는 소문자를 list<char>에 저장하라.
+	// 저장한 문자가 [a, z]까지 모든 문자가 있는지 확인하라.
+
+	ifstream in{ "FileName.cpp" };
+
+	if (!in)
+		return -1;
+
+	list<char> con;
+
+	char c;
+	while (in >> c) {
+		if (islower(c))
+			con.push_back(c);
+	}
+
+	con.sort();
+	con.unique();  // 중복된 원소를 삭제한다
+
+	//jy
+
+	if (26 == con.size())  
+		cout << "모든 문자 포함" << endl;
+
+	else
+		cout << "없는 문자가 있음" << endl;
+
+
+
+	for (char& c : con)
+		cout << c;
+	cout << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-02 목요일 오후 5:11:13
+==================================================
+
+//-----------------------
+//목78
+// 5.2 목
+// forward_list - 단일 연결 리스트가 필요하다면 이걸 써라.
+//                이것보다 더 좋은 걸 만들 수는 없을 것이다.
+// 
+// It is intended that forward_list have zero space or time overhead relative to 
+// a hand-written C-style singly linked list.
+// Features that would conflict with that goal have been omitted.
+//----------------------
+#include <iostream>
+#include "save.h"
+#include "String.h"
+using namespace std;
+extern bool 관찰;
+
+
+int main() {
+	save("FileName.cpp");
+ }

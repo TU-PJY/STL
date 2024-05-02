@@ -3,6 +3,7 @@
 // 
 // 2024.04.04 시작
 // 2024/04.04 관찰 스위치 추가
+// 2024.05.02 operator < (operator less) (list::merge)
 //-------------------------------------------
 #include "String.h"
 
@@ -90,6 +91,12 @@ String& String::operator = (String&& rhs) {
 	return *this;
 }
 
+
+//2024.05.02 operator <
+bool String::operator < (const String& rhs) const {
+	// 내 String과 rhs의 String을 사전식으로 비교해야 한다
+	return std::lexicographical_compare(p.get(), p.get() + len, rhs.p.get(), rhs.p.get() + rhs.len);
+}
 
 
 size_t String::get_len() const {

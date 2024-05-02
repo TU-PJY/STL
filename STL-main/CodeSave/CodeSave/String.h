@@ -3,6 +3,7 @@
 // 
 // 2024.04.04 시작
 // 2024.04.04 클래스의 special 동작 관찰
+// 2024.05.02 operator < (operator less) (list::merge)
 //-------------------------------------------
 #pragma once
 #include <iostream>
@@ -30,7 +31,11 @@ public:
 	String(String&& other);
 	String& operator = (String&& rhs);
 
+	//2024.05.02 operator <
+	bool operator < (const String& rhs) const;
+
 	size_t get_len() const;
+
 
 	friend std::ostream& operator << (std::ostream& os, const String& s) {
 		for (size_t i = 0; i < s.len; ++i)
@@ -40,6 +45,8 @@ public:
 
 	// 2024.04.08
 	friend std::istream& operator >> (std::istream& is, String& s);
+
+
 
 private:
 	static size_t uid;  // 용도를 확인하자
