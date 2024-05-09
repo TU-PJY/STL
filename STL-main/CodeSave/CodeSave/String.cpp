@@ -34,7 +34,7 @@ String::String(const char* s)
 }
 
 
-// 복사 생성자 / 복사 할당 연산자 - 2024.04.04
+// 복사 생성자 / 복사 할당 연산자 - 2024.04.04 
 String::String(const String& other)
 	: len{ other.len }, id{++uid}
 {
