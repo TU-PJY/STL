@@ -16,13 +16,6 @@
 #include "String.h" 
 using namespace std;
 extern bool 관찰;
-//
-//template <class 반복자>
-//void f(반복자 iter) {
-//	// 모든 반복자의 종류를 판별하는 표준 문장
-//	cout << typeid(iterator_traits<반복자>::iterator_category).name() << endl;
-//
-//}
 
 template <class 반복자>
 void f(반복자 iter) {
@@ -37,7 +30,11 @@ int main() {
 
 	String s{ "1357924680" };
 
-	for (auto i = s.rbegin(); i != s.rend(); ++i) {
-		cout << *i << ' ';
-	}
+	// [실습] 연산자 오버로딩을 더 잘 이해하고 코딩하자
+	// 문제
+	// 다음 문장이 문제없이 실행되도록 하라
+	
+	sort(s.begin(), s.end());
+
+	cout << s << endl; //0123456789
  }

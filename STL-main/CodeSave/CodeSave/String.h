@@ -36,12 +36,34 @@ public:
 		return *this;
 	}
 
-	char& operator*() {
+	char& operator*() const {  // sort 떄문에 const 사용
 		return *(p);
 	}
 
 	bool operator==(const String_iterator& rhs) const {
 		return p == rhs.p;
+	}
+
+	// std::sort가 요구하는 연산자를 코딩한다
+	difference_type operator-(const String_iterator& rhs) const {
+		return p - rhs.p;
+	}
+
+	String_iterator& operator--() {
+		--p;
+		return *this;
+	}
+
+	String_iterator operator+(difference_type diff) const {
+		return String_iterator{ p + diff };
+	}
+
+	bool operator<(const String_iterator rhs) const {
+		return p < rhs.p;
+	}
+
+	String_iterator operator-(difference_type diff) const {
+		return String_iterator{ p - diff };
 	}
 };
 
