@@ -34,8 +34,10 @@ void f(반복자 iter) {
 
 int main() {
 	save("FileName.cpp");
-	
+
 	String s{ "1357924680" };
-	
-	f(s.rbegin());  // 종류와 컨셉을 출력
+
+	for (auto i = s.rbegin(); i != s.rend(); ++i) {
+		cout << *i << ' ';
+	}
  }

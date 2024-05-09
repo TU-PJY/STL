@@ -11,6 +11,44 @@
 #include <iostream>
 #include <memory>
 
+
+class String_iterator {
+public:
+	using value_type = char;
+	using difference_type = std::ptrdiff_t;
+	using pointer = char*;
+	using reference = char&;
+	using iterator_category = std::random_access_iterator_tag;
+
+	//c++20
+	using iterator_concept = std::contiguous_iterator_tag;
+
+
+private:
+	char* p;
+
+public:
+	String_iterator(char* p) : p{ p } {}
+
+	// 반복자의 기본 인터페이스
+	String_iterator& operator++() {
+		++p;
+		return *this;
+	}
+
+	char& operator*() {
+		return *(p);
+	}
+
+	bool operator==(const String_iterator& rhs) const {
+		return p == rhs.p;
+	}
+};
+
+
+
+// 역방향 반복자를 코딩할 이유는 없다. reverse_iterator를 사용하면 된다. 
+// 그렇지만, 컨테이너의 반복자는 반드시 클래스로 코딩해야 한다.
 // 2024.05.09 역방향 반복자 직접 코딩 - 반복자 어댑터의 일종
 class String_reverse_iterator {
 public:
@@ -20,7 +58,7 @@ public:
 	using reference = char&;
 	using iterator_category = std::random_access_iterator_tag;
 
-	//c++17
+	//c++20
 	using iterator_concept = std::contiguous_iterator_tag;
 	
 
@@ -75,13 +113,14 @@ public:
 	// 2024.4.4 get_set
 	size_t get_len() const;
 
+
 	// 2024.05.06
-	char* const begin() const {
-		return p.get();
+	String_iterator begin() const {
+		return String_iterator(p.get());
 	}
 
-	char* const end() const {
-		return p.get() + len;
+	String_iterator end() const {
+		return String_iterator(p.get() + len);
 	}
 
 
