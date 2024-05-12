@@ -9,20 +9,16 @@
 // 6월 6일 목요일 강의 예정
 //----------------------
 #include <iostream>
-#include <algorithm>
-#include <vector>
+
 #include <string>
 #include "save.h"
 #include "String.h" 
 using namespace std;
 extern bool 관찰;
 
-template <class 반복자>
-void f(반복자 iter) {
-	cout << typeid(iterator_traits<반복자>::iterator_category).name() << endl;
+template <class 반복자, class 호출가능타입>
+반복자 f(반복자 begin, 반복자 end, 호출 가능 타입 f) {
 
-	// c++20
-	cout << typeid(반복자::iterator_concept).name() << endl;
 }
 
 int main() {
@@ -30,11 +26,11 @@ int main() {
 
 	String s{ "1357924680" };
 
-	// [실습] 연산자 오버로딩을 더 잘 이해하고 코딩하자
-	// 문제
-	// 다음 문장이 문제없이 실행되도록 하라
-	
-	sort(s.begin(), s.end());
+	//문제
+	//다음 코드가 의도대로 실행되도록 함수 f()를 작성하라
+	// f는 구간 s.begin(), s.end()에서 조건에 맞는 원소를 찾아 반복자를 리턴한다
+	f(s.begin(), s.end(), [](char c) {if (글자 c의 숫자값이 짝수라면 리턴 true  else return false;)});
 
-	cout << s << endl; //0123456789
+	cout << "처음 찾은 짝수의 위치 - " << ? << endl;
+	cout << "처음 찾은 짝수의 값 - " << *p << endl;
  }
