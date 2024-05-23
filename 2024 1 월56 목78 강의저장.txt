@@ -8119,3 +8119,1619 @@ int main() {
 	cout << "전체 단어 수: " << mp.size();
 
  }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 3:42:06
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+	cout << "전체 단어 수: " << mp.size();
+
+	// 많이 사용된 단어 먼저 출력하라
+	map<int, String, greater<int>> mp2;
+
+	for (const auto& [단어, 횟수] : mp)
+		mp2.insert(make_pair(횟수, 단어));
+
+	for (const auto& [개수, 단어] : mp2)
+		cout << 단어 << "-" << 개수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 3:45:03
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <ranges>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+	cout << "전체 단어 수: " << mp.size() << endl << endl;
+
+	// 많이 사용된 단어 먼저 출력하라
+	map<int, String, greater<int>> mp2;
+
+	for (const auto& [단어, 횟수] : mp)
+		mp2.insert(make_pair(횟수, 단어));
+
+	for (const auto& [개수, 단어] : mp2 | views::reverse)
+		cout << 단어 << "-" << 개수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 3:45:43
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <ranges>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	cout << "전체 단어 수: " << mp.size() << endl << endl;
+
+	// 많이 사용된 단어 먼저 출력하라
+	map<int, String, greater<int>> mp2;
+
+	for (const auto& [단어, 횟수] : mp)
+		mp2.insert(make_pair(횟수, 단어));
+
+	for (const auto& [개수, 단어] : mp2 
+		| views::reverse 
+		| views::take(20))
+		cout << 단어 << "-" << 개수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 3:46:28
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <ranges>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	cout << "전체 단어 수: " << mp.size() << endl << endl;
+
+	// 많이 사용된 단어 먼저 출력하라
+	multimap<int, String, greater<int>> mp2;
+
+	for (const auto& [단어, 횟수] : mp)
+		mp2.insert(make_pair(횟수, 단어));
+
+	for (const auto& [개수, 단어] : mp2 
+		| views::reverse 
+		| views::take(20))
+		cout << 단어 << "-" << 개수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:00:38
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 99999};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: uniform 분포는 정말 uniform한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i)
+		iim[uid(dre) / 10000]++;
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:01:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 99999};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: uniform 분포는 정말 uniform한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 100000; ++i)
+		iim[uid(dre) / 100000]++;
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:02:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 99999};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: uniform 분포는 정말 uniform한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 100000; ++i)
+		iim[uid(dre) / 100000]++;
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:02:50
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+uniform_int_distribution uid{1, 99999};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: uniform 분포는 정말 uniform한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 100000000; ++i)
+		iim[uid(dre) / 100000000]++;
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:12:33
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{50000.};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 10000)
+			iim[(int)d / 10000]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:13:43
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{50000.};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)d / 10000]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:14:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{50000.};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)d / 100000 / 20]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:15:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{50000.};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)d / 100000 * 20]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:15:19
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{50000.};
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)d / 5000]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:16:00
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 50000., 0.1 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)d / 5000]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:16:30
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 50000., 0.01 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)(d / 5000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:16:51
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 50000., 0.3 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre);
+		if (0 < d && d < 100000)
+			iim[(int)(d / 5000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:18:29
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.1 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 5000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:18:57
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.3 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 5000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:19:33
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.0 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 5000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:20:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.01 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 1000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:20:20
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.05 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 10000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 1000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:20:41
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <map>
+#include <random>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+default_random_engine dre;
+normal_distribution nd{ 0.0, 0.05 };
+
+int main() {
+	save("FileName.cpp");
+
+	//실습: normal 분포는 정말 normal한가?
+	map <int, int> iim;  // 구간과 횟수
+
+	for (int i = 0; i < 1000000; ++i) {
+		double d = nd(dre) * 50000 + 50000;
+		if (0 < d && d < 100000)
+			iim[(int)(d / 1000)]++;
+	}
+
+	for (const auto& [구간, 횟수] : iim)
+		cout << 구간 << " - " << 횟수 << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:55:52
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{3, 1, 4, 2};
+
+	for (const auto& num : us)
+		cout << num << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:56:08
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{1, 2, 4, 3};
+
+	for (const auto& num : us)
+		cout << num << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:56:46
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{ 1, 2, 4, 3 };
+	
+	us.insert(7);
+
+	for (const auto& num : us)
+		cout << num << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:57:26
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{ 1, 2, 4, 3 };
+	
+	us.insert(8);
+
+	for (const auto& num : us)
+		cout << num << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 4:57:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{ 1, 2, 4, 3 };
+	
+	us.insert(9);
+
+	for (const auto& num : us)
+		cout << num << " ";
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:07:49
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:08:12
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_set<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:09:50
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:10:39
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:10:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:11:08
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:11:23
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-23 목요일 오후 5:11:55
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Unordered Associative container - unordered_set / unordered_map
+// 
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
+//----------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			print(" - {}", *p);
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	unordered_multiset<int> us{ 1, 2, 4, 3 };
+	
+	while (true) {
+		print_us(us);
+
+		cout << "추가 할 데이터 >> ";
+		int num;
+		cin >> num;
+		cout << endl;
+
+		us.insert(num);
+	}
+ }

@@ -4,46 +4,56 @@
 // 
 // 6월 6일 목요일 강의 예정
 // 
-// STL Associative container - set / map
+// STL Unordered Associative container - unordered_set / unordered_map
 // 
-// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+// 순서가 없다?
+// 메모리 구조를 화면에 출력
+// String을 unordered 컨테이너에 저장
 //----------------------
 #include <iostream>
-#include <set>
-#include <map>
-#include <list>
-#include <algorithm>
-#include <fstream>
-#include <string>
-#include <array>
+#include <unordered_set>
+#include <print>
 #include "save.h"
 #include "String.h" 
 using namespace std;
 extern bool 관찰;
 
+template<class 언오더드셋>
+
+void print_us(언오더드셋 us) {
+	// unordered_set의 메모리를 화면에 출력한다
+	for (int i = 0; i < us.bucket_count(); ++i) {
+		print("[{:3}] ", i);
+
+		for (auto p = us.begin(i); p != us.end(i); ++p)
+			cout << " - " << *p;
+
+		cout << endl;
+	}
+	cout << endl;
+}
+
+struct Hasher {
+	int operator()(const String& s) const {
+		return 3;
+	}
+};
+
 int main() {
 	save("FileName.cpp");
 
-	fstream in{ "이상한 나라의 앨리스.txt" };
-	if (!in) return -1;
+	unordered_multiset<String, Hasher> us{"1", "2", "4", "3"};
 
-	// 문제
-	// 파일에 사용된 단어와 횟수를 출력하라
+	관찰 = true;
+	
+	while (true) {
+		print_us(us);
 
-	map<String, int> mp;
+		cout << "추가 할 데이터 >> ";
+		String s;
+		cin >> s;
+		cout << endl;
 
-	String s{};
-
-	while (in >> s) {
-		mp[s]++;
-		mp.insert(pair<String, int>{s, mp[s]});
+		us.insert(s);
 	}
-
-	for (const auto& m : mp)
-		cout << m.first << " - " << m.second << endl;
-
-	cout << "전체 단어 수: " << mp.size();
-
-	// 많이 사용된 단어 먼저 출력하라
-
  }
