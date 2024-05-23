@@ -162,6 +162,8 @@ public:
 		return os;
 	}
 
+	bool operator==(String& other) const;
+
 	// 2024.04.08
 	friend std::istream& operator >> (std::istream& is, String& s);
 

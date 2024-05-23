@@ -7,7 +7,6 @@
 #include <memory>
 #include <numeric>
 #include <string>
-#include <cmath>
 
 
 class Player {
@@ -154,12 +153,12 @@ int main() {
 
 
     // accumulate로 모든 객체의 점수 합을 구한 후 컨테이너에 저장된 객체 수로 나누어 평균을 구한다
-    int score_sum = std::accumulate(player_list.begin(), player_list.end(), 0,
-        [](int sum, const Player& p) {
+    long long score_sum = std::accumulate(player_list.begin(), player_list.end(), 0LL,
+        [](long long sum, const Player& p) {
             return sum + p.get_score();
         });
 
-    double score_avg = (double)score_sum / (double)player_list.size();
+    long long score_avg = (score_sum / (long long)player_list.size());
 
     std::cout << "==== Player의 평균 점수 ====" << std::endl;
     std::cout << score_avg << " 점" << std::endl << std::endl;
@@ -196,7 +195,6 @@ int main() {
         // 먼저 발견한 두 중복 아이디를 파일에 기록한다
         out.width(25);
         out << std::left << start_it->get_name() << std::right << start_it->get_id() << std::endl;
-
         out.width(25);
         out << std::left << std::next(start_it)->get_name() << std::right << std::next(start_it)->get_id() << std::endl;
 
@@ -204,7 +202,6 @@ int main() {
         int same_id_count = 2;
 
         for (auto it = start_it + 1; it != player_list.end() - 1; ++it) {
-
             // 현재 아이디와 다음 아이디가 같을 떄
             if (it->get_id() == std::next(it)->get_id()) {
 
@@ -220,7 +217,6 @@ int main() {
                 else {
                     out.width(25);  // 파일에 두 아이디를 기록한다
                     out << std::left << it->get_name() << std::right << it->get_id() << std::endl;
-
                     out.width(25);
                     out << std::left << std::next(it)->get_name() << std::right << std::next(it)->get_id() << std::endl;
 

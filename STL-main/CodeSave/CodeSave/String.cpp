@@ -92,6 +92,11 @@ String& String::operator = (String&& rhs) {
 }
 
 
+bool String::operator==(String& other) const {
+	return p.get() == other.p.get();
+}
+
+
 //2024.05.02 operator <
 bool String::operator < (const String& rhs) const {
 	// 내 String과 rhs의 String을 사전식으로 비교해야 한다

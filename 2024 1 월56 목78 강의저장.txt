@@ -2311,3 +2311,5811 @@ int main() {
 
 	cout << s << endl; //0123456789
  }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 1:58:20
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 값>
+반복자 my_find(반복자 b, 반복자 e, 값 v ) {
+	while (!(b == e)) {
+		if (*b == v)
+			return b;
+		else
+			++b;
+	}
+
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "1357924680" };
+
+	// 문제
+	// 사용자가 원하는 char를 찾는다
+	
+	while (true) {
+		cout << "찾을 글자 입력 >>  ";
+		char c;
+		cin >> c;
+
+		auto p = my_find(s.begin(), s.end(), c);
+
+		if (p != s.end()) {
+			cout << c << "는 s의 " << p - s.begin() + 1 << "번째 글자" << endl;
+		}
+		else
+			cout << c << "는 없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 1:58:37
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 값>
+반복자 my_find(반복자 b, 반복자 e, 값 v ) {
+	while (!(b == e)) {
+		if (*b == v)
+			return b;
+		else
+			++b;
+	}
+
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "1357924680" };
+
+	// 문제
+	// 사용자가 원하는 char를 찾는다
+	
+	while (true) {
+		cout << "찾을 글자 입력 >>  ";
+		char c;
+		cin >> c;
+
+		auto p = my_find(s.begin(), s.end(), c);
+
+		if (p != s.end()) {
+			cout << c << "는 s의 " << p - s.begin() + 1 << "번째 글자" << endl;
+		}
+		else
+			cout << c << "는 없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:11:44
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "1357924680" };
+
+	// 문제
+	// my_find_if
+	// 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+
+	if (p != s.end()) 
+		cout << "s의 " << p - s.begin() + 1 << "번째 글자는 짝수: " << *p << endl;
+	else
+		cout << "짝수는 없음" << endl;
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:12:00
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "1357924680" };
+
+	// 문제
+	// my_find_if
+	// 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+
+	if (p != s.end()) 
+		cout << "s의 " << p - s.begin() + 1 << "번째 글자는 짝수: " << *p << endl;
+	else
+		cout << "짝수는 없음" << endl;
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:14:58
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "135792468020240513" };
+
+	// 문제
+	// my_find_if
+	// 모든 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+	auto it = p;
+
+	while (it != s.end()) {
+		++it;
+
+		it = my_find_if(s.begin(), s.end(),
+			[](char c) {
+				if (isdigit(c)) {
+					if (c & 1)
+						return false;
+					return true;
+				}
+			});
+		
+		if (it != s.end()) {
+			cout << *it << endl;
+			++it;
+		}
+	}
+
+
+	/*if (p != s.end()) 
+		cout << "s의 " << p - s.begin() + 1 << "번째 글자는 짝수: " << *p << endl;
+	else
+		cout << "짝수는 없음" << endl;*/
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:16:02
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "135792468020240513" };
+
+	// 문제
+	// my_find_if
+	// 모든 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+	/*while (it != s.end()) {
+		++it;
+
+		it = my_find_if(s.begin(), s.end(),
+			[](char c) {
+				if (isdigit(c)) {
+					if (c & 1)
+						return false;
+					return true;
+				}
+			});
+		
+		if (it != s.end()) {
+			cout << *it << endl;
+			++it;
+		}
+	}*/
+
+	auto it = p;
+
+	for (it = p; it != s.end(); ++it) {
+		it = my_find_if(s.begin(), s.end(),
+			[](char c) {
+				if (isdigit(c)) {
+					if (c & 1)
+						return false;
+					return true;
+				}
+			});
+
+		if (it != s.end()) {
+			cout << *it << endl;
+		}
+	}
+
+
+	/*if (p != s.end()) 
+		cout << "s의 " << p - s.begin() + 1 << "번째 글자는 짝수: " << *p << endl;
+	else
+		cout << "짝수는 없음" << endl;*/
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:34:38
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "135792468020240513" };
+
+	// 문제
+	// my_find_if
+	// 모든 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+	auto beg = s.begin();
+
+	while (beg != s.end()) {
+		auto p = my_find_if(beg, s.end(),
+			[](char c) {
+				if (isdigit(c)) {
+					if (c & 1)
+						return false;
+
+					return true;
+				}
+				return false;
+			});
+
+		if (p != s.end())
+			std::cout << *p << std::endl;
+
+		beg = p + 1;
+	}
+	
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:35:09
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template <class 반복자, class 조건식>
+반복자 my_find_if(반복자 b, 반복자 e, 조건식 c) {  // 조건식 predicate
+	while (!(b == e)) {
+		if (c(*b))
+			return b;
+		else
+			++b;
+	}
+
+	return e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "135792468020240513" };
+
+	// 문제
+	// my_find_if
+	// 모든 짝수를 찾는다
+	
+	auto p = my_find_if(s.begin(), s.end(),
+		[](char c) {
+			if (isdigit(c)) {
+				if (c & 1)
+					return false;
+				return true;
+			}
+		});
+
+	auto beg = s.begin();
+
+	while (beg != s.end()) {
+		auto p = my_find_if(beg, s.end(),
+			[](char c) {
+				if (isdigit(c)) {
+					if (c & 1)
+						return false;
+
+					return true;
+				}
+				return false;
+			});
+
+		if (p != s.end())
+			std::cout << *p << std::endl;
+
+		else {
+			break;
+		}
+
+		beg = p + 1;
+	}
+	
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:42:41
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector<char>v;
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:43:04
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+
+		++b;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector<char>v;
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:43:19
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector<char>v;
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:44:37
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector<char>v;
+
+	my_copy(s.begin(), s.end(), ostream_iterator<char>{cout});
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:46:29
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+
+	//my_copy(s.begin(), s.end(), v.begin(), v.end());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:46:41
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:47:03
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d, OutIter d2) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+
+	my_copy(s.begin(), s.end(), v.begin(), v.end());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:49:01
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+	v.reserve(100);
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:49:21
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+	//v.reserve(100);
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:51:07
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+	v.reserve(100);
+
+	my_copy(s.begin(), s.end(), v.begin());
+
+	for (int i = 0; i != s.get_len(); ++i)
+		cout << v[i];
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:53:59
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d, OutIter d2) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+	*d2 = *e;
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+	v.reserve(100);
+
+	my_copy(s.begin(), s.end(), v.begin(), v.end());
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 2:56:26
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 알고리즘 함수 - 반복자를 인자로 받는다
+// 
+// 
+// 6월 6일 목요일 강의 예정
+//----------------------
+#include <iostream>
+#include <vector>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+template<class InIter, class OutIter>
+void my_copy(InIter b, InIter e, OutIter d) {
+	while (!(b == e)) {
+		*d = *b;
+		++b;
+		++d;
+	}
+}
+
+int main() {
+	save("FileName.cpp");
+
+	String s{ "2024년 5월 13일 졸업작품 중간발표" };
+	vector <char> v;
+	v.reserve(100);
+
+	my_copy(s.begin(), s.end(), back_inserter(v));
+
+	for (char c : v)
+		cout << c;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 3:16:00
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set
+//----------------------
+#include <iostream>
+#include <set>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 3:16:52
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set
+//----------------------
+#include <iostream>
+#include <set>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s) {
+		cout << s << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 3:17:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set
+//----------------------
+#include <iostream>
+#include <set>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 3:17:44
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set
+//----------------------
+#include <iostream>
+#include <set>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+	관찰 = true;
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-13 월요일 오후 3:18:00
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set
+//----------------------
+#include <iostream>
+#include <set>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+	관찰 = true;
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:44:19
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+	관찰 = true;
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:44:41
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:44:58
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:45:52
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	set<String> s{ istream_iterator<String>{cin}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:52:50
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	fstream in{ "FileName.cpp" };
+	set<String, less<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:55:11
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//키보드 입력을 받아 저장한 후 정렬하여 출력하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, less<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:59:33
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, greater<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 3:59:48
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, greater<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:01:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, greater<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:03:26
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, greater<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:03:34
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, greater<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:03:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, less<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:04:01
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, less<String>> s{ istream_iterator<String>{in}, {} };
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:08:13
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+bool 길이오름차순(const String& a, const String& b) {
+	return a.get_len() > b.get_len();
+}
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, bool(*)(const String& a, const String& b)> 
+		s{istream_iterator<String>{in}, {}, 길이오름차순};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:08:29
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+bool 길이오름차순(const String& a, const String& b) {
+	return a.get_len() < b.get_len();
+}
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, bool(*)(const String& a, const String& b)> 
+		s{istream_iterator<String>{in}, {}, 길이오름차순};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:11:03
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+// uniqueness - equivalent한 자료는 제외한다
+// equivalence - A, B의 순서를 정할 때 A, B의 순서를 결정할 수 없다
+//				!(A < B) && !(B < A)
+// 
+// String을 길이 순으로 정렬한다고 해본다
+// {1, 22, 333, A, BB, CCC}
+// 
+// 1, A는 동등한 자격을 갖는다
+// 22, BB도 동등한 자격을 갖는다
+// 
+// 이 경우 set에는 {1, 22, 333}만 저장된다
+// 
+// 
+// equality(상등) - A, B가 operator==()의 결과 true이다.
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+struct 길이오름차순 {
+public: 
+	bool operator()(const String& a, const String& b) const {
+		return a.get_len() < b.get_len();
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s가 길이 오름차순으로 정렬하게 하라
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, 길이오름차순 > 
+		s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:23:27
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+// set이 영문자와 한글을 분리하게 한다
+// 이렇게 하면 절대 안된다
+template<>
+struct less <String> {
+	bool operator() (const String& a, const String& b) const {
+		// a/b - 영/영, 영/x, x/x
+		//x/영 일때만 순서를 바꾸도록 지시
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin()))){
+			return false;
+		}
+		return true;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s는 첫 글자가 영문자 알파벳 인것과 그렇지 않은 것으로 분리한다.
+
+	fstream in{ "FileName.cpp" };
+	multiset<String, less<String>> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:45:52
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+// set이 영문자와 한글을 분리하게 한다
+// 이렇게 하면 절대 안된다
+template<>
+struct less <String> {
+	bool operator() (const String& a, const String& b) const {
+		// a/b - 영/영, 영/x, x/x
+		//x/영 일때만 순서를 바꾸도록 지시
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin()))){
+			return false;
+		}
+		return true;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s는 첫 글자가 영문자 알파벳 인것과 그렇지 않은 것으로 분리한다.
+
+	fstream in{ "이상한 나라의 엘리스.txt" };
+	multiset<String, less<String>> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:46:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+// set이 영문자와 한글을 분리하게 한다
+// 이렇게 하면 절대 안된다
+template<>
+struct less <String> {
+	bool operator() (const String& a, const String& b) const {
+		// a/b - 영/영, 영/x, x/x
+		//x/영 일때만 순서를 바꾸도록 지시
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin()))){
+			return false;
+		}
+		return true;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s는 첫 글자가 영문자 알파벳 인것과 그렇지 않은 것으로 분리한다.
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String, less<String>> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:46:29
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+// set이 영문자와 한글을 분리하게 한다
+// 이렇게 하면 절대 안된다
+template<>
+struct less <String> {
+	bool operator() (const String& a, const String& b) const {
+		// a/b - 영/영, 영/x, x/x
+		//x/영 일때만 순서를 바꾸도록 지시
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin()))){
+			return false;
+		}
+		return true;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s는 첫 글자가 영문자 알파벳 인것과 그렇지 않은 것으로 분리한다.
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:46:43
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+// set이 영문자와 한글을 분리하게 한다
+// 이렇게 하면 절대 안된다
+template<>
+struct less <String> {
+	bool operator() (const String& a, const String& b) const {
+		// a/b - 영/영, 영/x, x/x
+		//x/영 일때만 순서를 바꾸도록 지시
+		if (!isalpha(*(a.begin())) && isalpha(*(b.begin()))){
+			return false;
+		}
+		return true;
+	}
+};
+
+int main() {
+	save("FileName.cpp");
+
+	//문제
+	//s는 첫 글자가 영문자 알파벳 인것과 그렇지 않은 것으로 분리한다.
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:47:30
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	set<String> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& s : s)
+		cout << s << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:48:48
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	set<String> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& word : s)
+		cout << word << "   ";
+
+	cout << endl;
+
+	cout << "단어 개수는 " << s.size();
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 4:50:51
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> s{istream_iterator<String>{in}, {}};
+
+	for (const auto& word : s)
+		cout << word << "   ";
+
+	cout << endl;
+
+	cout << "단어 개수는 " << s.size();
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 5:11:23
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+	cout << "단어 개수는 " << s.size();
+
+	// 문제
+	// 찾는 단어가 이 소설에 있나 알아보라
+
+	while (true) {
+		cout << "찾을 단어 >> ";
+		string word;
+		cin >> word;
+
+		auto it = s.contains(word);
+
+		if (it)
+			cout << word << "는 존재함" << endl;
+
+		else
+			cout << word << "는 존재하지 않음" << endl;
+			
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 5:17:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-16 목요일 오후 5:17:57
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:24:15
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:24:28
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:28:09
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			auto it = s.find(search);
+			if (it != s.end())
+				cout << *it << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:28:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			auto it = s.find(search);
+			if (it != s.end()) {
+				cout << *it << endl;
+				break;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:29:55
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (word == search)
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:39:58
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:40:02
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> s{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string search;
+		cin >> search;
+
+		for (const auto& word : s) {
+			if (includes(word.begin(), word.end(), search.begin(), search.end()))
+				cout << word << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:45:13
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end()) {
+				cout << word << " ";
+			}
+			cout << endl << endl;
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:45:29
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end()) {
+				cout << word << " ";
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:46:04
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end()) {
+				cout << word << " ";
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:48:45
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	string buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:49:26
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	string buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:51:50
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	String buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:51:54
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	String buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:52:01
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	String buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:52:20
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	String buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:52:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	string buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:54:16
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	string buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:54:34
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	string buffer{};
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				if(buffer != word)
+					cout << word << " ";
+
+				buffer = word;
+			}
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:56:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<string> ms{istream_iterator<string>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		string s;
+		cin >> s;
+
+		set<string> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				found.insert(word);
+			}
+		}
+
+		for (const auto& word : found)
+			cout << word << " ";
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:57:18
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		set<String> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				found.insert(word);
+			}
+		}
+
+		if (found.size() > 0) {
+			for (const auto& word : found)
+				cout << word << " ";
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:57:41
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		set<String> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+
+			if (it != word.end()) {
+				found.insert(word);
+			}
+		}
+
+		if (found.size() > 0) {
+			for (const auto& word : found)
+				cout << word << " ";
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:59:19
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		set<String> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end())
+				found.insert(word);
+		}
+
+		if (found.size() > 0) {
+			for (const auto& word : found)
+				cout << word << " ";
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:59:51
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		set<String> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end())
+				found.insert(word);
+		}
+
+		if (found.size() > 0) {
+			for (const auto& word : found)
+				cout << word << " ";
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 1:59:57
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 알파벳 단어가 들어가는 모든 단어를 출력하라
+	// 같은 단어는 한 번만 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		set<String> found;
+
+		for (const auto& word : ms) {
+			auto it = search(word.begin(), word.end(), s.begin(), s.end());
+			if (it != word.end())
+				found.insert(word);
+		}
+
+		if (found.size() > 0) {
+			for (const auto& word : found)
+				cout << word << " ";
+		}
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:07:58
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 단어가 있다면 몇 개가 있는지 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		auto it = ms.find(s);
+		if (it != ms.end()) {
+			cout << *it << " ";
+			cout << ms.count(s) << "개"<< endl;
+		}
+
+		else
+			cout << "단어가 없음" << endl;
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:17:38
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 단어가 있다면 몇 개가 있는지 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		auto [하한, 상한] = ms.equal_range(s);
+		if (하한 == 상한)
+			cout << "단어가 없음";
+
+		else
+			cout << distance(하한, 상한) << endl;
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:18:14
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 단어가 있다면 몇 개가 있는지 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		auto [하한, 상한] = ms.equal_range(s);
+		if (하한 == 상한)
+			cout << "단어가 없음";
+
+		else
+			cout << s << ": " << distance(하한, 상한) << endl;
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:19:02
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// set - unique 한 멤버의 set을 정렬된 상태로 관리한다
+
+// set에 내가 정의한 클래스 String을 저장하려면
+// 1. operator < 정의한다 - less<String> 객체가 호출 - operator < 
+// 2. 함수 객체를 정의하고 set생성시 알려준다
+//----------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	multiset<String> ms{istream_iterator<String>{in}, {}};
+
+	// 문제
+	// 찾는 단어가 있다면 몇 개가 있는지 출력하라
+
+	while (true) {
+		cout << "찾을 단어>> ";
+		String s;
+		cin >> s;
+
+		auto [하한, 상한] = ms.equal_range(s);
+		if (하한 == 상한)
+			cout << "단어가 없음";
+
+		else
+			cout << s << ": " << distance(하한, 상한) << endl;
+
+		cout << endl << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:45:51
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+		if (it != kpg.end())
+			cout << "있음" << endl;
+		else
+			cout << "없음" << endl;
+	}
+	
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:47:31
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+		if (it != kpg.end())
+			cout << "있음: " << it->first << endl;
+		else
+			cout << "없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:48:27
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+		if (it != kpg.end()) {
+			cout << "있음: " << it->first << endl;
+			for (const auto& member : it->second) {
+				cout << member << " ";
+			}
+		}
+		else
+			cout << "없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:48:42
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+		if (it != kpg.end()) {
+			cout << "있음: " << it->first << endl;
+			for (const auto& member : it->second) {
+				cout << member << " ";
+			}
+			cout << endl;
+		}
+		else
+			cout << "없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:49:22
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+		if (it != kpg.end()) {
+			cout << "있음: " << it->first << endl;
+			for (const auto& member : it->second) {
+				cout << member << " ";
+			}
+			cout << endl;
+		}
+		else
+			cout << "없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:49:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	map<String, list<String>> kpg{
+		{"아이브", {"안유진", "가을", "레이", "장원영", "리즈", "이서"}}
+	};
+	
+	kpg.insert(pair<String, list<String>>{{"씨스타19"}, { "보라", "효린" }});
+
+
+	while (true) {
+		cout << "그룹 검색 >> ";
+		String group;
+		cin >> group;
+
+		auto it = kpg.find(group);
+
+		if (it != kpg.end()) {
+			cout << "있음: " << it->first << endl;
+			for (const auto& member : it->second)
+				cout << member << " ";
+			cout << endl;
+		}
+
+		else
+			cout << "없음" << endl;
+	}
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:50:57
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) exit(1);
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 2:51:04
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:03:24
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:03:45
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:03:53
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:05
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:10
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:12
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:15
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:16
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:04:18
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:11:51
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[alpha] = num;
+
+	for (const auto& m : mp2)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:12:00
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[alpha] = num;
+
+	for (const auto& m : mp2)
+		cout << m.first << " - " << m.second << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:12:28
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[alpha] = num;
+
+	for (auto [alpha, num] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:12:35
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[alpha] = num;
+
+	for (auto [alpha, num] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:13:16
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[num] = alpha;
+
+	for (auto [alpha, num] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:13:28
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, less<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[num] = alpha;
+
+	for (auto [num, alpha] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:13:50
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, greater<int>> mp2;
+
+	for (auto [alpha, num] : mp2)
+		mp2[num] = alpha;
+
+	for (auto [num, alpha] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:14:20
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에서 각 알파벳의 출현 횟수를 출력하라
+
+	map<char, int> mp;
+
+	char c{};
+
+	while (in) {
+		in >> c;
+		if(isupper(c))
+			c = tolower(c);
+
+		++mp[c];
+
+		mp.insert(pair<char, int>{c, mp[c]});
+	}
+
+	//for (const auto& m : mp)
+	//	cout << m.first << " - " << m.second << endl;
+
+	map <int, char, greater<int>> mp2;
+
+	for (auto& [alpha, num] : mp2)
+		mp2[num] = alpha;
+
+	for (auto& [num, alpha] : mp2)
+		cout << alpha << " - " << num << endl;
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:16:47
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:17:58
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+	cout << "전체 단어 수: " << mp.size();
+
+ }
+
+
+==================================================
+FileName.cpp, 저장시간: 2024-05-20 월요일 오후 3:18:24
+==================================================
+
+//-----------------------
+//목78
+// 5.6 화
+// 
+// 6월 6일 목요일 강의 예정
+// 
+// STL Associative container - set / map
+// 
+// map - <key, value> pair를 key 기준으로 정렬상태를 유지
+//----------------------
+#include <iostream>
+#include <set>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <fstream>
+#include <string>
+#include <array>
+#include "save.h"
+#include "String.h" 
+using namespace std;
+extern bool 관찰;
+
+int main() {
+	save("FileName.cpp");
+
+	fstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) return -1;
+
+	// 문제
+	// 파일에 사용된 단어와 횟수를 출력하라
+
+	map<String, int> mp;
+
+	String s{};
+
+	while (in >> s) {
+		mp[s]++;
+		mp.insert(pair<String, int>{s, mp[s]});
+	}
+
+	for (const auto& m : mp)
+		cout << m.first << " - " << m.second << endl;
+
+	cout << "전체 단어 수: " << mp.size();
+
+ }
